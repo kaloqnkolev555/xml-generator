@@ -1,0 +1,30 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="deleteAreaForm" (ngSubmit)="deleteArea()" action="#">
+    <div class="row">
+      <div class="xml-border col-md-12 mb-4">
+        <div class="col-md-6 px-0">
+          <div class="mb-4">Select the Area(s) you want to delete:</div>
+          <app-search-select
+            class="search-select-default-hight d-block"
+            [formControl]="collectAreasCTR"
+            multiple="true"
+            [errorSet]="delete_area_errors.templateCgMetaAreaIdColumn"
+          >
+            <app-search-select-option *ngFor="let area of areas" [value]="area.id" [searchValue]="area.areaName">{{
+              area.areaName
+            }}</app-search-select-option>
+          </app-search-select>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/areas" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true" (click)="deleteArea()">Delete</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</div>

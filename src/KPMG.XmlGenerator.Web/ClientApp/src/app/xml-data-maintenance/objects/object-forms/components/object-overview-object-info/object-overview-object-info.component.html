@@ -1,0 +1,25 @@
+<div class="row xml-border">
+  <div class="col p-0">
+    <div class="row">
+      <div class="col font-weight-bold">Object Information</div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="row" *ngFor="let item of firstColumnData; index as i" [ngClass]="{ 'mt-2': i > 0 }">
+          <div class="col-sm-5 text-muted">{{ item.label }}</div>
+          <div class="col-sm-7 break-all">{{ item.value }}</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div
+          class="row"
+          *ngFor="let item of secondColumnData; index as i"
+          [ngClass]="{ 'mt-sm-2 mt-md-0': i === 0, 'mt-2': i > 0 }"
+        >
+          <div class="col-sm-5 text-muted">{{ item.label }}</div>
+          <div class="col-sm-7 break-all">{{ item.value }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

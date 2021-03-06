@@ -1,0 +1,76 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "form": "Formular",
+        "admin": "Verwaltung"
+    },
+    "form": {
+        "product": "Produkt:",
+        "email": "Email:",
+        "price": "Preis:",
+        "expiryDate": "Verfallsdatum:",
+        "currency": "Währung:",
+        "discounted": "ermäßigt",
+        "add": "Produkt hinzufügen",
+        "placeholders": {
+            "product": "Geben Sie den Produktnamen ein",
+            "email": "Geben sie ihre E-Mail Adresse ein",
+            "price": "Geben Sie den Produktpreis ein",
+            "expiry": "Geben Sie das Ablaufdatum ein"
+        }
+    },
+    "home": {
+        "title": "KPMG XmlGenerator",
+        "purpose": "KPMG Web Template ist eine ASP-Core-Webanwendung mit Vorlagen, mit der Sie auf einfache Weise ein neues Webprojekt in KPMG starten können. Die Struktur, Implementierung und verwendeten Technologien decken alle internen Anforderungen des Unternehmens ab und basieren auf Best Practices, die in verschiedenen Projekten verwendet werden. Der Zweck der Vorlage besteht darin, die anfängliche Erstellung des Projekts voranzutreiben und eine gebrauchsfertige Webanwendung bereitzustellen.",
+        "learnMore": "Mehr erfahren"
+    },
+    "documentation": {
+        "menu": "Dokumentation"
+    },
+    "admin": {
+        "description": "Admin-Seite mit Anleitung basierend auf der protokollierten Benutzerrolle"
+    },
+    "user": {
+        "naLine1": "Нicht",
+        "naLine2": "berechtigt",
+        "hello": "Hallo",
+        "details": "Einzelheiten",
+        "logout": "Ausloggen",
+        "profileInfo": "Benutzerprofil Info",
+        "name": "Name",
+        "location": "Ort",
+        "roles": "Benutzer Rollen",
+        "claims": "Ansprüche des Benutzers",
+        "enabled": "Konto aktiv",
+        "groups": "Benutzer Gruppen"
+    },
+    "errorPages": {
+        "401": {
+            "code": "401",
+            "codeName": "Nicht autorisiert",
+            "codeDescription": "Der Zugriff ist nur für registrierte Benutzern gestattet"
+        },
+        "403": {
+            "code": "403",
+            "codeName": "Zugriff verweigert",
+            "codeDescription": "Die Seite oder Ressource, die Sie erreichen möchten, ist verboten."
+        },
+        "404": {
+            "code": "404",
+            "codeName": "Datei oder Verzeichnis nicht gefunden",
+            "codeDescription": "Die Ressource, nach der Sie suchen, wurde möglicherweise entfernt, der Name wurde geändert oder ist vorübergehend nicht verfügbar."
+        }
+    },
+    "errors": {
+        "required": "Dieses Feld wird benötigt!",
+        "date": "Bitte geben Sie ein korrektes Datum ein!",
+        "email": "Bitte geben Sie eine gültige Email-Adresse ein!",
+        "number": "Bitte geben Sie eine gültige Nummer ein!"
+    },
+    "notifications": {
+      "success": {
+        "productAdded": "Das Produkt wurde erfolgreich hinzugefügt"
+      },
+      "error": {}
+    }
+}

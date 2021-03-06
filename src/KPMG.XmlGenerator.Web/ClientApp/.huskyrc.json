@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "format:fix": "precise-commits",
+    "pre-commit": "npm run precommit lint && ng lint"
+  }
+}

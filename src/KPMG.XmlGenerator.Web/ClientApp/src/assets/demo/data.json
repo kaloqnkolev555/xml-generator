@@ -1,0 +1,31 @@
+[{
+  "product": "My awesome product",
+  "email": "myemail@kmpg.com",
+  "price": 1262,
+  "expiryDate": "12.10.2020",
+  "discounted": false
+},{
+  "product": "My awesome product 2",
+  "email": "myemail@kmpg.com",
+  "price": 1262,
+  "expiryDate": "22.05.2019",
+  "discounted": true
+},{
+  "product": "My awesome product 3",
+  "email": "myemail@kmpg.com",
+  "price": 330,
+  "expiryDate": "02.03.2021",
+  "discounted": false
+},{
+  "product": "My awesome product 4",
+  "email": "myemail@kmpg.com",
+  "price": 3157,
+  "expiryDate": "31.05.2025",
+  "discounted": false
+},{
+  "product": "My awesome product 5",
+  "email": "myemail@kmpg.com",
+  "price": 1253,
+  "expiryDate": "31.12.2018",
+  "discounted": true
+}]

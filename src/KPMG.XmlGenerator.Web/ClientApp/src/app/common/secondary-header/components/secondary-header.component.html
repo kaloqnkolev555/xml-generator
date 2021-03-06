@@ -1,0 +1,15 @@
+<div class="mb-4 secondary-header">
+  <div class="xml-border content-wrapper">
+    <div class="d-flex align-items-end first-row">
+      <div class="main-page-title mr-4">{{ mainTitle }}</div>
+      <div class="step-title">{{ stepTitle }}</div>
+      <div class="version-title flex-grow-1" *ngIf="!!db && !!version">Database: <strong>{{ db?.server }}\{{ db?.database }}</strong><br />Version: <strong>{{ version?.id }}</strong></div>
+    </div>
+    <div *ngIf="breadcrumbs" class="breadcrumbs d-flex">
+      <div *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-wrap d-flex align-items-center">
+        <a href="#" (click)="!!navigateRelatively([breadcrumb.url])" class="my-0">{{ breadcrumb.label }}</a>
+      </div>
+    </div>
+    <div class="plain-text" *ngIf="plainText">{{ plainText }}</div>
+  </div>
+</div>

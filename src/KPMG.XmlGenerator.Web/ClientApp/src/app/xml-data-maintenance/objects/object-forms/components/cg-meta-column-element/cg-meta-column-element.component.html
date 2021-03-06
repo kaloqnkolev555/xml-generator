@@ -1,0 +1,38 @@
+<form [formGroup]="group" class="row">
+  <div class="col-md-6">
+    <label>Columns</label>
+    <app-search-select
+      [errorSet]="meta_column_errors.mappedColumns"
+      class="search-select-default-hight d-block"
+      formControlName="mappedColumns"
+      [multiple]="true"
+      [keys]="['columnName']"
+    >
+      <app-search-select-option
+        #option
+        *ngFor="let column of columns"
+        [value]="column"
+        [searchValue]="column.columnName"
+      >
+        {{ columnOptionTextBuilder(column) }}
+      </app-search-select-option>
+    </app-search-select>
+    <span class="helper-text"
+      >*Columns available for mapping in table {{ tableName }}, that will be mapped to area
+      {{ group.value.areaName }}</span
+    >
+  </div>
+
+  <div class="col-md-6">
+    <label>Select Area to Copy Mapping</label>
+    <ng-select [formControl]="refAreaCTR" [items]="refAreas" bindLabel="displayName" [clearable]="true"></ng-select>
+    <app-xml-button
+      (click)="mapColumns()"
+      [whiteTheme]="false"
+      class="mt-3 d-block"
+      [disabled]="isCopyButtonValid()"
+    >
+      Copy Mapping
+    </app-xml-button>
+  </div>
+</form>

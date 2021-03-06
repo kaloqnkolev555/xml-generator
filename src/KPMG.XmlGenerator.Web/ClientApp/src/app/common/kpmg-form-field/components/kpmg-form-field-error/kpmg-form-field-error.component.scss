@@ -1,0 +1,7 @@
+@import '../../../../../styles/colors';
+::ng-deep .error-text {
+  color: $error-red-color;
+  font-size: 12px;
+  margin: 0px;
+  position: absolute;
+}

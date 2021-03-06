@@ -1,0 +1,22 @@
+<div
+  *ngIf="!hide"
+  class="search-select-option"
+  [class.active]="isSelected"
+  [class.disabled]="isDisabled"
+  (click)="isDisabled ? $event.stopPropagation() : selectOption()"
+>
+  <ng-template #content><ng-content></ng-content></ng-template>
+
+  <ng-container *ngIf="isMulti">
+    <div class="custom-control custom-checkbox">
+      <input class="custom-control-input" [ngModel]="isSelected" type="checkbox" />
+      <label class="custom-control-label">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </label>
+    </div>
+  </ng-container>
+
+  <div *ngIf="!isMulti">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
+</div>

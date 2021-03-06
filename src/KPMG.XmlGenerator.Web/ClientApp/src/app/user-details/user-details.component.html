@@ -1,0 +1,25 @@
+<div *ngIf="user.authenticated">
+    <h1>{{'user.profileInfo' | translate}}:</h1>
+    <h5>ID: {{user.id}}</h5>
+    <h5>{{'user.enabled' | translate}}: {{user.enabled}}</h5>
+    <h5>{{'user.name' | translate}}: {{user.displayName}}</h5>
+    <div class="user-image">
+        <img [src]="user.image" alt="User image" />
+    </div>
+    <h5>E-Mail: {{user.email}}</h5>
+    <h5>Network Id: {{user.networkId}}</h5>
+    <h5>{{'user.location' | translate}}: {{user.location}}</h5>
+    <h5>{{'user.roles' | translate}}: {{user.roles}}</h5>
+    <h5>{{'user.groups' | translate}}: </h5>
+    <ul class="table">
+        <li *ngFor="let group of user.groups">
+            {{ group }}
+        </li>
+    </ul>
+    <h5>{{'user.claims' | translate}}: </h5>
+    <ul class="table">
+        <li *ngFor="let claim of user.claims">
+            {{ claim.key }} - {{ claim.value }}
+        </li>
+    </ul>
+</div>

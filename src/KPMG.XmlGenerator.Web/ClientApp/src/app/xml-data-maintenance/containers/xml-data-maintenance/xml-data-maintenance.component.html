@@ -1,0 +1,20 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle" [plainText]="plainText"></app-secondary-header>
+  <div class="xml-border row">
+    <div class="col-md-5 px-0">
+      <app-xml-button class="px-0 d-block mb-4" routerLink="objects">Objects</app-xml-button>
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="areas">Areas</app-xml-button>
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="configurations-variants">
+        Variants / Configurations</app-xml-button
+      >
+      <app-xml-button class="px-0 d-block mt-2 mb-4"> Versioning</app-xml-button>
+      <app-xml-button class="px-0 d-block mt-2 mb-4"> Master Data</app-xml-button>
+      <app-xml-button class="px-0 d-block mt-2"> Helper Tables</app-xml-button>
+    </div>
+  </div>
+  <div class="row">
+    <app-sticky-footer class="d-block w-100">
+      <app-xml-button whiteTheme="true" routerLink="/">Back</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</div>

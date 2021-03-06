@@ -1,0 +1,49 @@
+<div class="map-object-to-areas container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="mapObjectsToAreaForm" (ngSubmit)="mapObjectsToArea()">
+    <div class="xml-border row">
+      <div class="col-md-6 form-group">
+        <label>Select Area for which you want to map objects:</label>
+        <app-search-select
+          [errorSet]="map_objects_to_errors.areaColumnId"
+          class="search-select-default-hight d-block"
+          formControlName="areaColumnId"
+        >
+          <app-search-select-option
+            *ngFor="let area of areas"
+            (valueChange)="printArea($event)"
+            [value]="area.id"
+            [searchValue]="area.areaName"
+            >{{ area.areaName }}</app-search-select-option
+          >
+        </app-search-select>
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label class="break-all">Select Objects you want to map to: {{ printSelectedArea }}</label>
+        <app-search-select
+          [errorSet]="map_objects_to_errors.objectColumnId"
+          class="search-select-default-hight d-block"
+          [multiple]="true"
+          formControlName="objectColumnId"
+        >
+          <app-search-select-option
+            *ngFor="let object of objects"
+            [value]="object.id"
+            [searchValue]="object.cgMetaObjectName"
+            >{{ object.cgMetaObjectName }}</app-search-select-option
+          >
+        </app-search-select>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-sticky-footer class="block w-100">
+        <app-xml-button whiteTheme="true" class="mr-3" (click)="resetForm()">Deselect Changes</app-xml-button>
+        <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/areas" class="mr-3">Back</app-xml-button>
+        <app-xml-button [isSubmit]="true">Map Objects</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>

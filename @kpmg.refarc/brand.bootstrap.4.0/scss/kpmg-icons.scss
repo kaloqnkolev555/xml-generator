@@ -1,0 +1,839 @@
+@import "icon-variables";
+
+@font-face {
+    font-family: 'kpmg-icons';
+    src:    url('#{$font-path}/kpmg-icons.eot?pqw68z');
+    src:    url('#{$font-path}/kpmg-icons.eot?pqw68z#iefix') format('embedded-opentype'),
+        url('#{$font-path}/kpmg-icons.ttf?pqw68z') format('truetype'),
+        url('#{$font-path}/kpmg-icons.woff?pqw68z') format('woff'),
+        url('#{$font-path}/kpmg-icons.svg?pqw68z#kpmg-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icn {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'kpmg-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icn-kpmg-logo {
+    &:before {
+        content: $icn-kpmg_logo;
+    }
+}
+.icn-advice {
+    &:before {
+        content: $icn-advice;
+    }
+}
+.icn-alert {
+    &:before {
+        content: $icn-alert;
+    }
+}
+.icn-ambulance {
+    &:before {
+        content: $icn-ambulance;
+    }
+}
+.icn-appointment {
+    &:before {
+        content: $icn-appointment;
+    }
+}
+.icn-chart {
+    &:before {
+        content: $icn-chart;
+    }
+}
+.icn-chart-down {
+    &:before {
+        content: $icn-chart-down;
+    }
+}
+.icn-chart-up {
+    &:before {
+        content: $icn-chart-up;
+    }
+}
+.icn-battery-empty {
+    &:before {
+        content: $icn-battery-empty;
+    }
+}
+.icn-battery-full {
+    &:before {
+        content: $icn-battery-full;
+    }
+}
+.icn-battery-half {
+    &:before {
+        content: $icn-battery-half;
+    }
+}
+.icn-battery-pack {
+    &:before {
+        content: $icn-battery-pack;
+    }
+}
+.icn-briefcase {
+    &:before {
+        content: $icn-briefcase;
+    }
+}
+.icn-calendar-day {
+    &:before {
+        content: $icn-calendar-day;
+    }
+}
+.icn-calendar {
+    &:before {
+        content: $icn-calendar;
+    }
+}
+.icn-car {
+    &:before {
+        content: $icn-car;
+    }
+}
+.icn-certificate {
+    &:before {
+        content: $icn-certificate;
+    }
+}
+.icn-charging-station {
+    &:before {
+        content: $icn-charging-station;
+    }
+}
+.icn-clipboard {
+    &:before {
+        content: $icn-clipboard;
+    }
+}
+.icn-clock {
+    &:before {
+        content: $icn-clock;
+    }
+}
+.icn-cloud-download {
+    &:before {
+        content: $icn-cloud-download;
+    }
+}
+.icn-cloud-signal {
+    &:before {
+        content: $icn-cloud-signal;
+    }
+}
+.icn-cloud-upload {
+    &:before {
+        content: $icn-cloud-upload;
+    }
+}
+.icn-computer {
+    &:before {
+        content: $icn-computer;
+    }
+}
+.icn-computer-chart {
+    &:before {
+        content: $icn-computer-chart;
+    }
+}
+.icn-computer-chat {
+    &:before {
+        content: $icn-computer-chat;
+    }
+}
+.icn-computer-dock {
+    &:before {
+        content: $icn-computer-dock;
+    }
+}
+.icn-computer-signal {
+    &:before {
+        content: $icn-computer-signal;
+    }
+}
+.icn-computer-stocks {
+    &:before {
+        content: $icn-computer-stocks;
+    }
+}
+.icn-conversation-1 {
+    &:before {
+        content: $icn-conversation-1;
+    }
+}
+.icn-conversation-2 {
+    &:before {
+        content: $icn-conversation-2;
+    }
+}
+.icn-credit-card-1 {
+    &:before {
+        content: $icn-credit-card-1;
+    }
+}
+.icn-credit-card-2 {
+    &:before {
+        content: $icn-credit-card-2;
+    }
+}
+.icn-currency {
+    &:before {
+        content: $icn-currency;
+    }
+}
+.icn-currency-down {
+    &:before {
+        content: $icn-currency-down;
+    }
+}
+.icn-currency-up {
+    &:before {
+        content: $icn-currency-up;
+    }
+}
+.icn-cycle {
+    &:before {
+        content: $icn-cycle;
+    }
+}
+.icn-dashboard {
+    &:before {
+        content: $icn-dashboard;
+    }
+}
+.icn-dna {
+    &:before {
+        content: $icn-dna;
+    }
+}
+.icn-eco-lightbulb {
+    &:before {
+        content: $icn-eco-lightbulb;
+    }
+}
+.icn-electric-car {
+    &:before {
+        content: $icn-electric-car;
+    }
+}
+.icn-electricity {
+    &:before {
+        content: $icn-electricity;
+    }
+}
+.icn-badge {
+    &:before {
+        content: $icn-badge;
+    }
+}
+.icn-envelope-open {
+    &:before {
+        content: $icn-envelope-open;
+    }
+}
+.icn-envelope-closed {
+    &:before {
+        content: $icn-envelope-closed;
+    }
+}
+.icn-envelope {
+    &:before {
+        content: $icn-envelope;
+    }
+}
+.icn-factory {
+    &:before {
+        content: $icn-factory;
+    }
+}
+.icn-female {
+    &:before {
+        content: $icn-female;
+    }
+}
+.icn-female-business {
+    &:before {
+        content: $icn-female-business;
+    }
+}
+.icn-female-group-1 {
+    &:before {
+        content: $icn-female-group-1;
+    }
+}
+.icn-female-group-2 {
+    &:before {
+        content: $icn-female-group-2;
+    }
+}
+.icn-female-male {
+    &:before {
+        content: $icn-female-male;
+    }
+}
+.icn-female-reach {
+    &:before {
+        content: $icn-female-reach;
+    }
+}
+.icn-female-stance {
+    &:before {
+        content: $icn-female-stance;
+    }
+}
+.icn-female-three-1 {
+    &:before {
+        content: $icn-female-three-1;
+    }
+}
+.icn-female-three-2 {
+    &:before {
+        content: $icn-female-three-2;
+    }
+}
+.icn-female-time {
+    &:before {
+        content: $icn-female-time;
+    }
+}
+.icn-firewall {
+    &:before {
+        content: $icn-firewall;
+    }
+}
+.icn-flag-1 {
+    &:before {
+        content: $icn-flag-1;
+    }
+}
+.icn-lag-2 {
+    &:before {
+        content: $icn-lag-2;
+    }
+}
+.icn-folder-1 {
+    &:before {
+        content: $icn-folder-1;
+    }
+}
+.icn-folder-2 {
+    &:before {
+        content: $icn-folder-2;
+    }
+}
+.icn-trash {
+    &:before {
+        content: $icn-trash;
+    }
+}
+.icn-gas-pump {
+    &:before {
+        content: $icn-gas-pump;
+    }
+}
+.icn-gavel {
+    &:before {
+        content: $icn-gavel;
+    }
+}
+.icn-globe {
+    &:before {
+        content: $icn-globe;
+    }
+}
+.icn-globe-hand {
+    &:before {
+        content: $icn-globe-hand;
+    }
+}
+.icn-handshake {
+    &:before {
+        content: $icn-handshake;
+    }
+}
+.icn-hand-sprout {
+    &:before {
+        content: $icn-hand-sprout;
+    }
+}
+.icn-heart {
+    &:before {
+        content: $icn-heart;
+    }
+}
+.icn-heart-monitor {
+    &:before {
+        content: $icn-heart-monitor;
+    }
+}
+.icn-cross {
+    &:before {
+        content: $icn-cross;
+    }
+}
+.icn-hospital {
+    &:before {
+        content: $icn-hospital;
+    }
+}
+.icn-khouse {
+    &:before {
+        content: $icn-khouse;
+    }
+}
+.icn-institution {
+    &:before {
+        content: $icn-institution;
+    }
+}
+.icn-laptop {
+    &:before {
+        content: $icn-laptop;
+    }
+}
+.icn-leaf {
+    &:before {
+        content: $icn-leaf;
+    }
+}
+.icn-leaves {
+    &:before {
+        content: $icn-leaves;
+    }
+}
+.icn-letter {
+    &:before {
+        content: $icn-letter;
+    }
+}
+.icn-letter-write {
+    &:before {
+        content: $icn-letter-write;
+    }
+}
+.icn-lightbulb {
+    &:before {
+        content: $icn-lightbulb;
+    }
+}
+.icn-location {
+    &:before {
+        content: $icn-location;
+    }
+}
+.icn-klock {
+    &:before {
+        content: $icn-klock;
+    }
+}
+.icn-male {
+    &:before {
+        content: $icn-male;
+    }
+}
+.icn-male-business {
+    &:before {
+        content: $icn-male-business;
+    }
+}
+.icn-male-female {
+    &:before {
+        content: $icn-male-female;
+    }
+}
+.icn-male-group {
+    &:before {
+        content: $icn-male-group;
+    }
+}
+.icn-male-reach {
+    &:before {
+        content: $icn-male-reach;
+    }
+}
+.icn-male-stance {
+    &:before {
+        content: $icn-male-stance;
+    }
+}
+.icn-male-three {
+    &:before {
+        content: $icn-male-three;
+    }
+}
+.icn-male-time {
+    &:before {
+        content: $icn-male-time;
+    }
+}
+.icn-map {
+    &:before {
+        content: $icn-map;
+    }
+}
+.icn-map-location {
+    &:before {
+        content: $icn-map-location;
+    }
+}
+.icn-meal {
+    &:before {
+        content: $icn-meal;
+    }
+}
+.icn-medical-bag {
+    &:before {
+        content: $icn-medical-bag;
+    }
+}
+.icn-mobile-chat {
+    &:before {
+        content: $icn-mobile-chat;
+    }
+}
+.icn-mobile-devices {
+    &:before {
+        content: $icn-mobile-devices;
+    }
+}
+.icn-mobile-signal {
+    &:before {
+        content: $icn-mobile-signal;
+    }
+}
+.icn-mobile {
+    &:before {
+        content: $icn-mobile;
+    }
+}
+.icn-mobile-dark {
+    &:before {
+        content: $icn-mobile-dark;
+    }
+}
+.icn-network-1 {
+    &:before {
+        content: $icn-network-1;
+    }
+}
+.icn-network-2 {
+    &:before {
+        content: $icn-network-2;
+    }
+}
+.icn-office {
+    &:before {
+        content: $icn-office;
+    }
+}
+.icn-oil-can {
+    &:before {
+        content: $icn-oil-can;
+    }
+}
+.icn-oil-jug {
+    &:before {
+        content: $icn-oil-jug;
+    }
+}
+.icn-oil-tank {
+    &:before {
+        content: $icn-oil-tank;
+    }
+}
+.icn-oil-value {
+    &:before {
+        content: $icn-oil-value;
+    }
+}
+.icn-options {
+    &:before {
+        content: $icn-options;
+    }
+}
+.icn-overheat-car {
+    &:before {
+        content: $icn-overheat-car;
+    }
+}
+.icn-paperclip {
+    &:before {
+        content: $icn-paperclip;
+    }
+}
+.icn-people-link {
+    &:before {
+        content: $icn-people-link;
+    }
+}
+.icn-people-cirle {
+    &:before {
+        content: $icn-people-cirle;
+    }
+}
+.icn-people-stucture {
+    &:before {
+        content: $icn-people-stucture;
+    }
+}
+.icn-pie-chart-1 {
+    &:before {
+        content: $icn-pie-chart-1;
+    }
+}
+.icn-pie-chart-2 {
+    &:before {
+        content: $icn-pie-chart-2;
+    }
+}
+.icn-pie-chart-3 {
+    &:before {
+        content: $icn-pie-chart-3;
+    }
+}
+.icn-piggy-bank {
+    &:before {
+        content: $icn-piggy-bank;
+    }
+}
+.icn-pill {
+    &:before {
+        content: $icn-pill;
+    }
+}
+.icn-plane-right {
+    &:before {
+        content: $icn-plane-right;
+    }
+}
+.icn-plane-across {
+    &:before {
+        content: $icn-plane-across;
+    }
+}
+.icn-plane-up {
+    &:before {
+        content: $icn-plane-up;
+    }
+}
+.icn-preferences {
+    &:before {
+        content: $icn-preferences;
+    }
+}
+.icn-protection {
+    &:before {
+        content: $icn-protection;
+    }
+}
+.icn-pump-jack {
+    &:before {
+        content: $icn-pump-jack;
+    }
+}
+.icn-recycle-bin {
+    &:before {
+        content: $icn-recycle-bin;
+    }
+}
+.icn-run {
+    &:before {
+        content: $icn-run;
+    }
+}
+.icn-shopping-bag {
+    &:before {
+        content: $icn-shopping-bag;
+    }
+}
+.icn-shopping-cart {
+    &:before {
+        content: $icn-shopping-cart;
+    }
+}
+.icn-signal {
+    &:before {
+        content: $icn-signal;
+    }
+}
+.icn-signal-tower {
+    &:before {
+        content: $icn-signal-tower;
+    }
+}
+.icn-sleep {
+    &:before {
+        content: $icn-sleep;
+    }
+}
+.icn-small-group {
+    &:before {
+        content: $icn-small-group;
+    }
+}
+.icn-smoke-stacks {
+    &:before {
+        content: $icn-smoke-stacks;
+    }
+}
+.icn-stacked-coin {
+    &:before {
+        content: $icn-stacked-coin;
+    }
+}
+.icn-strategy {
+    &:before {
+        content: $icn-strategy;
+    }
+}
+.icn-sun {
+    &:before {
+        content: $icn-sun;
+    }
+}
+.icn-system-network {
+    &:before {
+        content: $icn-system-network;
+    }
+}
+.icn-tablet {
+    &:before {
+        content: $icn-tablet;
+    }
+}
+.icn-tablet-dark {
+    &:before {
+        content: $icn-tablet-dark;
+    }
+}
+.icn-talk {
+    &:before {
+        content: $icn-talk;
+    }
+}
+.icn-talk-write {
+    &:before {
+        content: $icn-talk-write;
+    }
+}
+.icn-talk-write-iverted {
+    &:before {
+        content: $icn-talk-write-iverted;
+    }
+}
+.icn-testtube-beaker {
+    &:before {
+        content: $icn-testtube-beaker;
+    }
+}
+.icn-testtube {
+    &:before {
+        content: $icn-testtube;
+    }
+}
+.icn-testtube-full {
+    &:before {
+        content: $icn-testtube-full;
+    }
+}
+.icn-testtubes {
+    &:before {
+        content: $icn-testtubes;
+    }
+}
+.icn-tools {
+    &:before {
+        content: $icn-tools;
+    }
+}
+.icn-tree {
+    &:before {
+        content: $icn-tree;
+    }
+}
+.icn-truck {
+    &:before {
+        content: $icn-truck;
+    }
+}
+.icn-unlock {
+    &:before {
+        content: $icn-unlock;
+    }
+}
+.icn-utensil {
+    &:before {
+        content: $icn-utensil;
+    }
+}
+.icn-vehicles {
+    &:before {
+        content: $icn-vehicles;
+    }
+}
+.icn-waiting {
+    &:before {
+        content: $icn-waiting;
+    }
+}
+.icn-waterdrop {
+    &:before {
+        content: $icn-waterdrop;
+    }
+}
+.icn-wave {
+    &:before {
+        content: $icn-wave;
+    }
+}
+.icn-weather {
+    &:before {
+        content: $icn-weather;
+    }
+}
+.icn-wheat {
+    &:before {
+        content: $icn-wheat;
+    }
+}
+.icn-wheelchair {
+    &:before {
+        content: $icn-wheelchair;
+    }
+}
+.icn-windmill {
+    &:before {
+        content: $icn-windmill;
+    }
+}
+.icn-world-1 {
+    &:before {
+        content: $icn-world-1;
+    }
+}
+.icn-world-2 {
+    &:before {
+        content: $icn-world-2;
+    }
+}
+.icn-world-3 {
+    &:before {
+        content: $icn-world-3;
+    }
+}
+

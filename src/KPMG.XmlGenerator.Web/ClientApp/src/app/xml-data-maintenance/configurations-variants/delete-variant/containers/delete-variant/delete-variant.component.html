@@ -1,0 +1,35 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="deleteVariantForm" (ngSubmit)="deleteVariant()" action="#">
+    <div class="row">
+      <div class="xml-border col-md-12 mb-4">
+        <div class="col-md-6 px-0">
+          <div class="mb-4">Select the Variant(s) you want to delete:</div>
+          <app-search-select
+            class="search-select-default-hight d-block"
+            [formControl]="collectVariantsCTR"
+            multiple="true"
+            [errorSet]="delete_variant_errors.templateCgMetaVariantIdColumn"
+          >
+            <app-search-select-option
+              *ngFor="let variant of variants"
+              [value]="variant.id"
+              [searchValue]="variant.variantName"
+              >{{ variant.variantName }}</app-search-select-option
+            >
+          </app-search-select>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/configurations-variants" class="mr-3"
+        >Back</app-xml-button
+      >
+      <app-xml-button [isSubmit]="true" (click)="deleteVariant()">Delete</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</div>

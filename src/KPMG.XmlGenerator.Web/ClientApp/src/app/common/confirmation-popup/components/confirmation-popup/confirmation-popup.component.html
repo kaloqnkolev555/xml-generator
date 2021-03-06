@@ -1,0 +1,13 @@
+<div *ngIf="data.warningDescription" class="warning">
+  <div class="bold mb-2">{{ data.warningDescription }}</div>
+  <div class="confirm-areas-list mb-2">
+    <div class="selected-area-name" *ngFor="let area of data.selectedAreas">{{ area.areaName }}</div>
+    <div class="selected-area-name" *ngFor="let object of data.selectedObjects">{{ object.cgMetaObjectName }}</div>
+    <div class="selected-area-name" *ngFor="let variant of data.selectedVariants">{{ variant.variantName }}</div>
+    <div class="selected-area-name" *ngFor="let configuration of data.selectedConfigurations">
+      {{ configuration.configurationName }}
+    </div>
+  </div>
+  <div class="description">{{ data.description }}</div>
+</div>
+<div *ngIf="!data.warningDescription" class="description">{{ data.description }}</div>

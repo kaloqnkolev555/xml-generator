@@ -1,0 +1,48 @@
+@import './../../../../styles/colors';
+
+.secondary-header {
+  width: 100%;
+}
+
+.content-wrapper {
+  :nth-child(2) :not(.first-row) {
+    margin-top: 1.5em;
+  }
+}
+
+.main-page-title {
+  color: $dark-blue-color;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-family: 'KPMG';
+}
+
+.step-title {
+  color: $light-gray-color;
+}
+
+.version-title {
+  text-align: right;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.breadcrumbs {
+  .breadcrumb-wrap {
+    &::before {
+      content: '\027A4';
+      margin: 0 1rem;
+      font-size: 0.7rem;
+    }
+    &:nth-child(1) {
+      &::before {
+        content: '';
+        margin: 0;
+      }
+    }
+    a {
+      margin: 0;
+      color: $light-blue-color;
+    }
+  }
+}

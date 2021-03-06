@@ -1,0 +1,122 @@
+<div class="container mb-4 px-0">
+  <app-secondary-header [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="dbSettingsForm" (ngSubmit)="submitForm()">
+    <div class="xml-border">
+      <div class="form-group row">
+        <label for="selectDb" class="col-sm-3 col-form-label">Connect To:</label>
+        <div class="col-sm-5">
+          <ng-select formControlName="selectDb"
+                     [items]="dbNames"
+                     bindLabel="name"
+                     [clearable]="false"></ng-select>
+        </div>
+        <div class="col-sm-4">
+          <input
+            type="button"
+            *ngIf="!!selectedDb"
+            (click)="runDbScripts()"
+            [value]="'Deploy All DB Scripts' | translate"
+            class="btn btn-primary"
+            aria-describedby="runDbScriptsBlock"
+          />
+          <small *ngIf="!!selectedDb" id="runDbScriptsBlock" class="form-text text-muted">
+            Note: This functionality will not be present in production.
+          </small>
+        </div>
+      </div>
+      <dl class="row" *ngIf="!!selectedDb">
+        <dt class="col-sm-3">Server</dt>
+        <dd class="col-sm-9">{{ selectedDb.server }}</dd>
+      </dl>
+      <dl class="row" *ngIf="!!selectedDb">
+        <dt class="col-sm-3">Database</dt>
+        <dd class="col-sm-9">{{ selectedDb.database }}</dd>
+      </dl>
+      <div class="form-group row" *ngIf="!!selectedDb">
+        <i *ngIf="!!getVersionsError; then getVersionsErrorTemplate; else getVersionsTemplate"></i>
+        <ng-template #getVersionsErrorTemplate>
+          <div class="col-12">
+            <div class="alert alert-danger" role="alert">
+              <h4 class="alert-heading">Error: Versions Could Not Be Retrieved!</h4>
+              <p>An error occurred while retrieving the versions from the selected database.</p>
+              <p>Try <a href="#" class="alert-link" (click)="runDbScripts()">deploying the SQL scripts</a> to the selected database.</p>
+              <hr />
+              <p class="mb-0"><app-error-json #errorGetVersions [jsonMessage]="getVersionsError"></app-error-json></p>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #getVersionsTemplate>
+          <label for="selectVersion" class="col-sm-3 col-form-label">Select Version:</label>
+          <div class="col-sm-9">
+            <ng-select formControlName="selectVersion"
+                       [items]="cgMetaVersions"
+                       bindLabel="displayString"
+                       [clearable]="false">
+            </ng-select>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!!selectedDb && !getVersionsError">
+      <app-sticky-footer class="d-block w-100">
+        <app-xml-button [isSubmit]="true">Continue</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>
+
+<div
+  bsModal
+  #modalApplyAllSqlScriptsResults="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="apply-all-sql-scripts-results-name"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="apply-all-sql-scripts-results-name" class="modal-title pull-left">
+          Results from Deploying All SQL Scripts
+        </h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="modalApplyAllSqlScriptsResults.hide()"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngFor="let r of applyScriptsResults; let i = index">
+          <div class="row">
+            <div class="col-sm-1">
+              <i *ngIf="r.isSuccessful; then successLabelTemplate; else failedLabelTemplate"></i>
+              <ng-template #successLabelTemplate>
+                <span class="badge badge-success">Success</span>
+              </ng-template>
+              <ng-template #failedLabelTemplate>
+                <span class="badge badge-danger">Failed</span>
+              </ng-template>
+            </div>
+            <div class="col-sm-11">
+              {{ r.dbSqlScriptFileName }}
+              <pre *ngIf="!r.IsSuccessful"><code>{{ r.executionResult }}</code></pre>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="button btn btn-primary"
+          data-dismiss="modal"
+          (click)="modalApplyAllSqlScriptsResults.hide()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

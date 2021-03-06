@@ -1,0 +1,43 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <div class="row">
+    <div class="xml-border col-md-12">
+      <div class="col-md-6 px-0">
+        <div class="mb-4">Select Variant of which you want to change the name:</div>
+        <app-search-select
+          class="search-select-default-hight d-block"
+          [formControl]="variantsCTR"
+          [errorSet]="edit_variants_error.id"
+        >
+          <app-search-select-option *ngFor="let variant of variants" [value]="variant.id" [searchValue]="variant.variantName">{{
+            variant.variantName
+          }}</app-search-select-option>
+        </app-search-select>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="editVariantForm" (ngSubmit)="editVariant()">
+    <div class="row xml-border mt-4">
+      <div class=" d-flex align-items-center col-md-6 px-0">
+        <div class="flex-grow-1 w-100">Enter New Name:</div>
+
+        <app-kpmg-form-field class="d-block w-100">
+          <input kpmgInput class="form-control" formControlName="variantName" placeholder="Variant name" type="text" />
+          <app-kpmg-form-field-error-set
+            [control]="variantCTR"
+            [errorsSet]="edit_variants_error.variantName"
+          ></app-kpmg-form-field-error-set>
+        </app-kpmg-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-sticky-footer>
+        <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/configurations-variants" class="mr-3">Back</app-xml-button>
+        <app-xml-button [isSubmit]="true">Change Name</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>

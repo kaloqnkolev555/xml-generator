@@ -1,0 +1,16 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+  <div class="xml-border row">
+    <div class="col-md-5 px-0">
+      <app-xml-button class="d-block mb-4 px-0" routerLink="create-new">Create New Area</app-xml-button>
+      <app-xml-button class="d-block mb-4 px-0" routerLink="edit-area">Edit Area Name</app-xml-button>
+      <app-xml-button class="d-block mb-4 px-0" routerLink="map-objects-to-area">Object - Area Mapping</app-xml-button>
+      <app-xml-button class="d-block px-0" routerLink="delete-area">Delete Area(s)</app-xml-button>
+    </div>
+  </div>
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance">Back</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</div>

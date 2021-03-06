@@ -1,0 +1,12 @@
+@import '../../../../../../styles/colors';
+.duplicate-hconstraint {
+    box-shadow: inset 0px 0px 0px 1px #d60000;
+    background: #fffcfc;
+  }
+.duplicate-hconstraint-error-message {
+    position: relative;
+    bottom: 6px;
+    left: 10px;
+    font-size: 12px;
+    color: $error-red-color;
+  }

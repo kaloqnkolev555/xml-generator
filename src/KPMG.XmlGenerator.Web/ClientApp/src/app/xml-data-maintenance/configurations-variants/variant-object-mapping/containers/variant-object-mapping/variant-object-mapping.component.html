@@ -1,0 +1,51 @@
+<div class="variant-object-mapping container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="variantObjectMapping" (ngSubmit)="mapObjectsToVariant()">
+    <div class="xml-border row">
+      <div class="col-md-6 form-group">
+        <label for="exampleInputEmail1">Select Variant for which you want to map objects:</label>
+        <app-search-select
+          [errorSet]="map_objects_to_errors.variantColumnId"
+          class="search-select-default-hight"
+          formControlName="variantColumnId"
+        >
+          <app-search-select-option
+            *ngFor="let variant of variants"
+            (valueChange)="printVariant($event)"
+            [value]="variant.id"
+            [searchValue]="variant.variantName"
+            >{{ variant.variantName }}</app-search-select-option
+          >
+        </app-search-select>
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label class="break-all">Select Objects you want to map to: {{ printSelectedVariant }}</label>
+        <app-search-select
+          [errorSet]="map_objects_to_errors.objectColumnId"
+          class="search-select-default-hight d-block"
+          [multiple]="true"
+          formControlName="objectColumnId"
+        >
+          <app-search-select-option
+            *ngFor="let object of objects"
+            [value]="object.id"
+            [searchValue]="object.cgMetaObjectName"
+            >{{ object.cgMetaObjectName }}</app-search-select-option
+          >
+        </app-search-select>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-sticky-footer class="block w-100">
+        <app-xml-button whiteTheme="true" class="mr-3" (click)="resetForm()">Deselect Changes</app-xml-button>
+        <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/configurations-variants" class="mr-3"
+          >Back</app-xml-button
+        >
+        <app-xml-button [isSubmit]="true">Map Objects</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>

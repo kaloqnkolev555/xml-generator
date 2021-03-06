@@ -1,0 +1,183 @@
+// nav
+.navbar-dark.bg-dark {
+    background-color: $dark-blue !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: $white;
+}
+
+.dropdown-toggle::after {
+  margin-left: $caret-width * 1.85;
+}
+
+.dropleft .dropdown-toggle::before {
+  margin-right: $caret-width * 1.85;
+}
+
+.bg-light {
+  background-color: $white !important;
+}
+
+// buttons
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-danger,
+.btn-warning,
+.btn-primary:hover,
+.btn-success:hover,
+.btn-info:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-primary.disabled,
+.btn-success.disabled,
+.btn-info.disabled,
+.btn-danger.disabled,
+.btn-warning.disabled,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    color: $white;
+}
+
+.btn-secondary {
+    border-color: #aaaaaa;
+}
+
+.btn-outline-secondary {
+    border-color: #aaaaaa;
+    color: $gray-900;
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+    border-color: #aaaaaa;
+}
+
+.btn-link:disabled,
+.btn-link.disabled {
+    color: $mid-gray
+}
+
+.btn.disabled,
+.btn:disabled {
+    opacity: 0.7
+}
+
+// typography
+h1,
+.h1 {
+    font-family: 'KPMG Web', Arial, Helvetica, sans-serif;
+}
+
+// grid
+.table-dark,
+.table-dark>th,
+.table-dark>td {
+    background-color: $dark-blue;
+    color: $white;
+}
+
+.table th,
+.table td {
+    border-top-width: 0;
+}
+
+// forms
+.form-control,
+.custom-select,
+.input-group-text {
+    border-radius: 0;
+}
+
+.has-success label {
+    color: $success;
+}
+
+.has-warning label {
+    color: $warning;
+}
+
+.has-danger label {
+    color: $danger;
+}
+
+// breadcrumbs
+.breadcrumb {
+    background: none;
+}
+
+// alerts
+.alert-warning,
+.alert-success,
+.alert-info,
+.alert-danger,
+.alert-primary {
+    color: $white;
+    .alert-link {
+        color: $white;
+    }
+}
+
+.alert-secondary {
+    background: #ddd;
+    color: $darkest-gray;
+    .alert-link {
+        color: $primary;
+    }
+}
+
+.alert-light {
+    background: $white;
+    border-color: #ddd;
+    color: $dark-gray;
+    .alert-link {
+        color: $primary;
+    }
+}
+
+.alert-warning {
+    background-color: $yellow;
+}
+
+// badges
+.badge-primary,
+.badge-success,
+.badge-warning,
+.badge-danger,
+.badge-info,
+.badge-dark {
+    color: $white;
+}
+
+.badge-secondary {
+    background-color: #ddd;
+}
+
+.border-secondary {
+    border: 1px solid #ddd;
+}
+
+.border-light {
+    border: 1px solid #ddd;
+}
+
+// junbotron
+.jumbotron {
+    background-color: $light-purple;
+    color: $white;
+    border-radius: 0;
+}
+
+// modal
+.modal {
+    .modal-content {
+        border-radius: 0;
+    }
+}
+
+// popover
+.popover {
+    border-radius: 0;
+}

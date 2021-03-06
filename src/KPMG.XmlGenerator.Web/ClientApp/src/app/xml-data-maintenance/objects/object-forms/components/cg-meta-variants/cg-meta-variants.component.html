@@ -1,0 +1,63 @@
+<form [formGroup]="createForm" novalidate (ngSubmit)="nextStep()">
+  <div class="row xml-border mb-4">
+    <div class="d-flex align-items-center col-md-12 px-0">
+      <div class="col pl-0 col-20">
+        Currently working on:
+      </div>
+      <b> {{ cgMetaObjectDTO?.cgMetaObjectName }}</b>
+    </div>
+  </div>
+
+  <div class="row xml-border mb-4">
+    <div class="col-12 mb-2">
+      <div class="row">
+        <div class="col-md-6 px-0 pr-4">
+          <div class="mb-4 break-all">Select variants you want to map to: {{ cgMetaObjectDTO?.cgMetaObjectName }}</div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="">
+            With the currently selected variant mapping, the Object will be included in the following Configs:
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 px-0 pr-4">
+      <app-search-select
+        class="search-select-default-hight d-block"
+        [multiple]="true"
+        formControlName="variants"
+        [keys]="['versionId', 'variantName']"
+      >
+        <app-search-select-option
+          *ngFor="let variant of stepData.variants"
+          [value]="variant"
+          [searchValue]="variant.variantName"
+          >{{ variant.variantName }}</app-search-select-option
+        >
+      </app-search-select>
+    </div>
+    <div class="col-md-6 px-0">
+      <div class="select-box">
+        <div class="options-box">
+          <div *ngFor="let configuration of configurations | keyvalue">
+            <span class="badge mr-1" [adaptivePosition]="false" placement="left" container="body" style="vertical-align:text-top;"
+                  [ngClass]="{ 'badge-info': configuration.value.length === 1, 'badge-warning': configuration.value.length > 1 }"
+                  [tooltip]="configsTooltipTemplate">{{ configuration.value.length }}</span>
+            {{ configuration.key }}
+            <ng-template #configsTooltipTemplate>
+              Included from {{ configuration.value.length }} variant{{ configuration.value.length === 1 ? '' : 's' }}:
+              <div *ngFor="let variant of configuration.value">{{ variant }}</div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

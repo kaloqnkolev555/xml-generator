@@ -1,0 +1,48 @@
+<div class="container mb-4">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="createConfigurationForm" (ngSubmit)="createConfiguration()" action="#">
+    <div class="row xml-border" formGroupName="configuration">
+      <div class=" d-flex align-items-center col-md-6 px-0">
+        <div class="flex-grow-1 w-100">Enter Name:</div>
+        <app-kpmg-form-field class="d-block w-100">
+          <input kpmgInput formControlName="configurationName" class="form-control" type="text" />
+          <app-kpmg-form-field-error-set
+            [control]="createConfigurationForm.get('configuration').get('configurationName')"
+            [errorsSet]="create_configuration_errors.configurationName"
+          ></app-kpmg-form-field-error-set>
+        </app-kpmg-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="xml-border w-100">
+        <div class="col-md-6 px-0">
+          <div class="mb-4">Select Variants you want to map to this configuration:</div>
+          <app-search-select
+            [errorSet]="create_configuration_errors.mapMetaVariantIdColumns"
+            class="search-select-default-hight d-block"
+            [formControl]="mapMetaVariantIdColumnsCTR"
+            [multiple]="true"
+          >
+            <app-search-select-option
+              *ngFor="let variant of variants"
+              [value]="variant.id"
+              [searchValue]="variant.variantName"
+              >{{ variant.variantName }}</app-search-select-option
+            >
+          </app-search-select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-sticky-footer class="d-block w-100">
+        <app-xml-button [whiteTheme]="true" routerLink="/xml-data-maintenance/configurations-variants" class="mr-3"
+          >Back</app-xml-button
+        >
+        <app-xml-button [isSubmit]="true">Create Configuration</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>

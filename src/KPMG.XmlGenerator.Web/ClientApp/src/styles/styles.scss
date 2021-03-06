@@ -1,0 +1,58 @@
+@import 'bootstrap';
+
+@import './main';
+@import './error-pages';
+@import './form.scss';
+
+@import './colors.scss';
+
+@import '~@ng-select/ng-select/themes/default.theme.css';
+
+.bold {
+  font-weight: bold;
+}
+
+.padding-8-0-16 {
+  padding: 8px 0px 16px;
+}
+
+.xml-border {
+  background: white;
+  box-shadow: inset 0px 0px 0px 1px $light-gray-color;
+  padding: 20px 30px;
+}
+.with-sticky-footer {
+  margin-bottom: 120px;
+}
+
+.modal-footer {
+  .btn-secondary {
+    color: $mid-blue-color;
+  }
+  .btn {
+    border-radius: 0;
+    border-color: $mid-blue-color;
+    &:not(:last-child) {
+      margin-right: 0.75rem;
+    }
+    &:hover {
+      border-color: darken(white, 10%);
+    }
+  }
+}
+.search-select-default-hight {
+  height: $area-height;
+  display: block;
+}
+.break-all {
+  word-break: break-all;
+}
+.form-control:disabled,
+.form-control[readonly],
+.ng-select.ng-select-disabled > .ng-select-container {
+  background-color: #f9f9f9;
+}
+.col-20 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}

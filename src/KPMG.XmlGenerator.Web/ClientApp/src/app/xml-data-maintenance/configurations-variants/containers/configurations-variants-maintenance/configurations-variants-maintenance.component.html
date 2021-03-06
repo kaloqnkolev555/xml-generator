@@ -1,0 +1,33 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+  <div class="xml-border row">
+    <div class="col-md-5 px-0 pr-2">
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="create-new">Create New Variant</app-xml-button>
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="edit-variant">Edit Variant Name</app-xml-button>
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="variant-object-mapping"
+        >Variant - Object Mapping</app-xml-button
+      >
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="delete-variant">Delete Variant(s)</app-xml-button>
+    </div>
+    <div class="col-md-5">
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="create-configuration"
+        >Create New Configuration</app-xml-button
+      >
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="edit-configuration"
+        >Edit Configuration Name</app-xml-button
+      >
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="configuration-variant-mapping"
+        >Configuration – Variant Mapping</app-xml-button
+      >
+      <app-xml-button class="px-0 d-block mt-2 mb-4" routerLink="delete-configuration"
+        >Delete Configuration(s)</app-xml-button
+      >
+    </div>
+    <div class="hint-text"><i>New variant must be created before creating configuration</i></div>
+  </div>
+  <div class="row">
+    <app-sticky-footer class="d-d-block w-100">
+      <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance">Back</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</div>

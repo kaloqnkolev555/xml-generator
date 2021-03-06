@@ -1,0 +1,76 @@
+{
+    "navigation": {
+        "home": "Home",
+        "form": "Form",
+        "admin": "Admin"
+    },
+    "form": {
+        "product": "Product:",
+        "email": "Email:",
+        "price": "Price:",
+        "expiryDate": "Expiry Date:",
+        "currency": " $",
+        "discounted": "Discounted:",
+        "add": "Add the product",
+        "placeholders": {
+            "product": "Enter the product's name",
+            "email": "Enter your email",
+            "price": "Enter the product's price",
+            "expiry": "Enter the expiry date"
+        }
+    },
+    "home": {
+        "title": "KPMG XmlGenerator",
+        "purpose": "KPMG Web Template is a template ASP Core web application, which provides easy way to start a new web project within KPMG. The structure, implementation and used technologies cover all internal requirements in the company, and are based on best practices, used in different projects. The purpose of the template is to boost initial creation of the project and to provide ready to use web application.",
+        "learnMore": "Learn more"
+    },
+    "documentation": {
+        "menu": "Documentation"
+    },
+    "admin": {
+        "description": "Admin page with guard based on logged user role"
+    },
+    "user": {
+        "naLine1": "Not",
+        "naLine2": "аuthenticated",
+        "hello": "Hello",
+        "details": "Details",
+        "logout": "Logout",
+        "profileInfo": "User Profile Info",
+        "name": "Name",
+        "location": "Location",
+        "roles": "User roles",
+        "claims": "User claims",
+        "enabled": "Account active",
+        "groups": "User groups"
+    },
+    "errorPages": {
+        "401": {
+            "code": "401",
+            "codeName": "Unauthorized",
+            "codeDescription": "Access is allowed only for registred users"
+        },
+        "403": {
+            "code": "403",
+            "codeName": "Access Denied",
+            "codeDescription": "The page or resource you are trying to reach is forbidden."
+        },
+        "404": {
+            "code": "404",
+            "codeName": "File or directory not found",
+            "codeDescription": "The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+        }
+    },
+    "errors": {
+        "required": "This field is required!",
+        "date": "Please enter a valid date!",
+        "email": "Please enter a valid email!",
+        "number": "Please enter a valid number!"
+    },
+    "notifications": {
+      "success": {
+        "productAdded": "The product was added successfully"
+      },
+      "error": {}
+    }
+}

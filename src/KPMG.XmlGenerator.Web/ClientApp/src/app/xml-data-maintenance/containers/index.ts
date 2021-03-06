@@ -1,0 +1,1 @@
+export * from './xml-data-maintenance/xml-data-maintenance.component';

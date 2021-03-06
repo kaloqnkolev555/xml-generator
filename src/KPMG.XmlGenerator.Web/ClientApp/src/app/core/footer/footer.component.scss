@@ -1,0 +1,26 @@
+@import "KPMG_config";
+
+footer {
+  background: $light-gray;
+  font-size: 70%;
+}
+
+ul.footer-links {
+  list-style-type: none;
+
+  li {
+    display: inline-block;
+
+    &::after {
+      content: " | ";
+      color: $dark-gray;
+      padding-right: 0.25rem;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+

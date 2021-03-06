@@ -1,0 +1,63 @@
+@import './colors.scss';
+$border: 1px dotted $border-color;
+$area-height: 305px;
+
+input[type='checkbox'] {
+  width: 1em;
+  height: 1em;
+  user-select: none;
+}
+
+.button {
+  color: $white;
+  background-color: $dark-blue;
+  border: none;
+  padding: 5px;
+}
+
+.button:disabled {
+  color: #333;
+  background-color: #ccc;
+}
+
+.form {
+  width: 100%;
+}
+
+.left-border {
+  border-left: $border;
+}
+
+.table {
+  border-left: $border;
+  border-top: $border;
+
+  .table-header,
+  .table-cell {
+    display: inline;
+    flex: 1 0 20%;
+    max-width: 20%;
+    border-right: $border;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    text-align: center;
+  }
+
+  .table-row,
+  .table-header-row {
+    display: flex;
+    border-bottom: 1px dotted $border-color;
+  }
+
+  .table-header {
+    background-color: $dark-blue;
+    color: $white;
+  }
+
+  .table-row {
+    height: 1.5em;
+  }
+}

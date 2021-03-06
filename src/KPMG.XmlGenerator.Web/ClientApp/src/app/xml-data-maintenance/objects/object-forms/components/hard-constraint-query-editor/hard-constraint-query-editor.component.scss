@@ -1,0 +1,17 @@
+@import '../../../../../../styles/colors';
+
+.code-editor{border-radius:0;border:1px solid $border-color;}
+:host(.ng-invalid) .code-editor {
+  border-color: $error-red-color;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+
+  &:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px lighten($error-red-color, 10%);
+  }
+}
+.ace_hidden-cursors {
+  opacity: 0;
+}
+:host /deep/ .ace_hidden-cursors {
+  opacity: 0;
+}

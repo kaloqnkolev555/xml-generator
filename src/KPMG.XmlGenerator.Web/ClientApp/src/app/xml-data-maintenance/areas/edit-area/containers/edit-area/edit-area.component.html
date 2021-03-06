@@ -1,0 +1,43 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <div class="row">
+    <div class="xml-border col-md-12">
+      <div class="col-md-6 px-0">
+        <div class="mb-2">Select Area of which you want to change the name:</div>
+        <app-search-select
+          class="search-select-default-hight d-block"
+          [formControl]="areasCTR"
+          [errorSet]="edit_areas_error.id"
+        >
+          <app-search-select-option *ngFor="let area of areas" [value]="area.id" [searchValue]="area.areaName">{{
+            area.areaName
+          }}</app-search-select-option>
+        </app-search-select>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="editAreaForm" (ngSubmit)="editArea()">
+    <div class="row xml-border mt-4">
+      <div class=" d-flex align-items-center col-md-6 px-0">
+        <div class="flex-grow-1 w-100">Enter Name:</div>
+
+        <app-kpmg-form-field class="d-block w-100">
+          <input kpmgInput class="form-control" formControlName="areaName" placeholder="Area name" type="text" />
+          <app-kpmg-form-field-error-set
+            [control]="areaCTR"
+            [errorsSet]="edit_areas_error.areaName"
+          ></app-kpmg-form-field-error-set>
+        </app-kpmg-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-sticky-footer>
+        <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/areas" class="mr-3">Back</app-xml-button>
+        <app-xml-button [isSubmit]="true">Change Name</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>

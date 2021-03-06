@@ -1,0 +1,60 @@
+<div class="container">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+  <div class="xml-border row">
+    <div class="col-md-5 px-0">
+      <app-xml-button class="d-block mb-4 px-0" routerLink="create">Create New Object</app-xml-button>
+      <app-xml-button class="d-block mb-4 px-0" (click)="showEditModal()">Edit Existing Object</app-xml-button>
+      <app-xml-button class="d-block px-0" routerLink="delete">Delete Object(s)</app-xml-button>
+    </div>
+  </div>
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance">Back</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</div>
+
+<div
+  bsModal
+  #modalSelectObjectForEdit="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  [config]="{ backdrop: 'static' }"
+  aria-labelledby="modalSelectObjectForEditTitle"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form novalidate [formGroup]="fgSelectObjectForEdit">
+        <div class="modal-header">
+          <h4 id="modalSelectObjectForEditTitle" class="modal-title pull-left">
+            Select Object for Edit
+          </h4>
+          <button type="button" class="close pull-right" (click)="modalSelectObjectForEdit.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <label class="mb-0">Select Object:</label>
+            <app-ng-select-wrapper [errorsSet]="pageErrorSet.selectObjectForEdit">
+              <ng-select
+                formControlName="selectObjectForEdit"
+                [items]="cgMetaObjects"
+                bindLabel="cgMetaObjectName"
+                [clearable]="false"
+                placeholder="Select Object which you want to edit"
+              ></ng-select>
+            </app-ng-select-wrapper>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <app-xml-button whiteTheme="true" data-dismiss="modal" (click)="modalSelectObjectForEdit.hide()"
+            >&ensp;Cancel&ensp;</app-xml-button
+          >
+          <app-xml-button (click)="editObject()">&emsp;&emsp;OK&emsp;&emsp;</app-xml-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

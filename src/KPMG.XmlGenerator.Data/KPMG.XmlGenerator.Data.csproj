@@ -1,0 +1,134 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
+    <Platforms>AnyCPU;x64</Platforms>
+    <Configurations>Debug;Release;Debug-VS</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DB Scripts\SchemaChange_000_ID_Column_Generator.sql" />
+    <None Remove="DB Scripts\SchemaChange_001_AddDescriptionToAreas.sql" />
+    <None Remove="DB Scripts\SchemaChange_002_AddErrorCodeMasterTable.sql" />
+    <None Remove="DB Scripts\SchemaChange_003_AddCgMetaColumnTableType.sql" />
+    <None Remove="DB Scripts\SchemaChange_004_AddCgMetaConstraintTableType.sql" />
+    <None Remove="DB Scripts\SchemaChange_005_AddCgMetaHConstraintTableType.sql" />
+    <None Remove="DB Scripts\SchemaChange_006_AddCgMetaHeaderFooterForeignKey.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_del.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_ins.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_rename.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_to_objct_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_column_by_obj_area_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_configuration_del.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_configuration_ins.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_configuration_rename.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_configuration_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_configuration_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_configuration_variant_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_constraint_to_area_find_conOption.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_constraint_to_area_find_conValue.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_extraction_logic_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_group_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_helperTable_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_areas_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_area_columns_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_area_constraints_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_area_hconstraints_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_del_many.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_load.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_master_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_name_validate.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_del.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_technical_settings_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_objct_variants_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_table_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_technical_setting_find_nrfield.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_technical_setting_find_nrobjct.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variants_with_configs_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_del.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_find.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_ins.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_objct_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_rename.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_variant_ups.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_version_sel.sql" />
+    <None Remove="DB Scripts\usp_cg_meta_area_by_reftable_sel" />
+    <None Remove="DB Scripts\usp_DD03L_sel.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DB Scripts\SchemaChange_000_ID_Column_Generator.sql" />
+    <EmbeddedResource Include="DB Scripts\SchemaChange_001_AddDescriptionToAreas.sql" />
+    <EmbeddedResource Include="DB Scripts\SchemaChange_002_AddErrorCodeMasterTable.sql" />
+    <EmbeddedResource Include="DB Scripts\SchemaChange_003_AddCgMetaColumnTableType.sql" />
+    <EmbeddedResource Include="DB Scripts\SchemaChange_004_AddCgMetaConstraintTableType.sql" />
+    <EmbeddedResource Include="DB Scripts\SchemaChange_005_AddCgMetaHConstraintTableType.sql" />
+    <EmbeddedResource Include="DB Scripts\SchemaChange_006_AddCgMetaHeaderFooterForeignKey.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_del.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_ins.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_rename.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_constraint_to_area_find_conOption.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_constraint_to_area_find_conValue.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_helperTable_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_extraction_logic_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_del_many.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_load.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_name_validate.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_technical_setting_find_nrfield.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_technical_setting_find_nrobjct.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variants_with_configs_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_DD03L_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_table_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_group_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_version_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_to_objct_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_column_by_obj_area_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_configuration_del.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_configuration_ins.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_configuration_rename.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_configuration_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_configuration_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_configuration_variant_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_master_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_technical_settings_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_areas_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_area_columns_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_area_constraints_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_area_hconstraints_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_variants_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_objct_del.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_del.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_find.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_ins.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_objct_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_rename.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_sel.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_variant_ups.sql" />
+    <EmbeddedResource Include="DB Scripts\usp_cg_meta_area_by_reftable_sel.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="150.18147.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KPMG.XmlGenerator.Core\KPMG.XmlGenerator.Core.csproj" />
+  </ItemGroup>
+
+</Project>

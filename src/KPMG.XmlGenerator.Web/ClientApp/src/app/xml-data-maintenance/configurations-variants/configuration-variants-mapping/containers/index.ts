@@ -1,0 +1,1 @@
+export * from './configuration-variants-mapping/configuration-variants-mapping.component';

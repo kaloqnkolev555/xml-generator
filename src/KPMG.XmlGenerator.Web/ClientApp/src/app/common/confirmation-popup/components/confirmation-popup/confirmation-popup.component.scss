@@ -1,0 +1,14 @@
+.confirm-areas-list {
+  .selected-area-name {
+    word-break: break-all;
+    &:after {
+      content: ',';
+      margin-right: 5px;
+    }
+    &:last-of-type {
+      &:after {
+        content: '';
+      }
+    }
+  }
+}

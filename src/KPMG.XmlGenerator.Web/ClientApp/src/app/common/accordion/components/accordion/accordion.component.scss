@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+.accordion {
+  display: block;
+  width: 100%;
+
+  & > .accordion-header {
+    height: 40px;
+  }
+
+  .accordion-header {
+    cursor: pointer;
+
+    p {
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+  }
+
+  .accordion-container {
+    padding-top: 32px;
+  }
+
+  .arrow {
+    transform: rotate(180deg);
+
+    &.open {
+      transform: rotate(0deg);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+
+      path {
+        fill: #999;
+      }
+    }
+  }
+}

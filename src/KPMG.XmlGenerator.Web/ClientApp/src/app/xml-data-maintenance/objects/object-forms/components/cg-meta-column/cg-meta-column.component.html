@@ -1,0 +1,39 @@
+<form [formGroup]="cgMetaColumnForm" (ngSubmit)="nextStep()">
+  <div class="row xml-border mb-4">
+    <div class="d-flex align-items-center col-md-12 px-0">
+      <div class="col pl-0 col-20">
+        Currently working on:
+      </div>
+      <b> {{ cgMetaObjectDTO?.cgMetaObjectName }}</b>
+    </div>
+  </div>
+
+  <ng-container *ngIf="elements.controls.length === 0">
+    <div class="row xml-border mb-4">There are no areas selected in Area Mapping</div>
+  </ng-container>
+
+  <ng-container formArrayName="data" *ngFor="let element of elements.controls; let i = index">
+    <app-accordion
+      [isOpen]="i >= 1 ? false : true"
+      (click)="sizeEvent()"
+      class="row xml-border mb-3"
+      [class.error]="!element.valid"
+      [formGroupName]="i"
+      [title]="element.value.areaName"
+    >
+      <app-cg-meta-column-element
+        [refAreas]="refAreas"
+        [group]="element"
+        [tableName]="tableName"
+        [columns]="columns"
+      ></app-cg-meta-column-element>
+    </app-accordion>
+  </ng-container>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

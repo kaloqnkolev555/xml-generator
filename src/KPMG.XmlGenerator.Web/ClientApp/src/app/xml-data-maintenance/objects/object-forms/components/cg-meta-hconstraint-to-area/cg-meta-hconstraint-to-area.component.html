@@ -1,0 +1,136 @@
+<form novalidate [formGroup]="fgHardConstraints" (ngSubmit)="onNextClick()">
+  <div class="row xml-border mb-4">
+    <div class="d-flex align-items-center col-md-12 px-0">
+      <div class="col pl-0 col-20">
+        Currently working on:
+      </div>
+      <b> {{ objectName }}</b>
+    </div>
+  </div>
+
+  <div
+    formArrayName="faHardConstraints"
+    *ngFor="let hc of fgHardConstraints.get('faHardConstraints')['controls']; let hcIndex = index"
+  >
+    <div class="row xml-border alert-dismissible pr-0 mb-3 position-relative" [formGroupName]="hcIndex" [ngClass]="{'duplicate-hconstraint': validateAreaToHConstraint(hc.value)}">
+      <div class="col-lg-4 pr-5">
+        <button
+          style="top:-15px;"
+          type="button"
+          class="close d-lg-none d-md-block"
+          aria-label="Close"
+          (click)="onButtonRemoveConstraintClick(hcIndex)"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div>
+          <div class="flex-grow-1 w-100">Name of Hardcoded Constraint:</div>
+          <div class="d-flex align-items-center">
+            <app-kpmg-form-field class="d-block w-100">
+              <input kpmgInput formControlName="hConstraintName" class="form-control" type="text" disabled="disabled" />
+              <app-kpmg-form-field-error-set
+                [control]="
+                  fgHardConstraints
+                    .get('faHardConstraints')
+                    .get(hcIndex.toString())
+                    .get('hConstraintName')
+                "
+                [errorsSet]="controlErrors.hConstraintName"
+              ></app-kpmg-form-field-error-set>
+            </app-kpmg-form-field>
+          </div>
+        </div>
+        <div>
+          <label class="mb-0">Select Area:</label>
+          <app-ng-select-wrapper [errorsSet]="controlErrors.area">
+            <ng-select formControlName="area" [items]="areas" bindLabel="areaName" [clearable]="false"></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+        <div>
+          <label class="mb-0">Is Default No Constraint?</label>
+          <app-toggle-button
+            class="d-block mt-2 mb-3"
+            formControlName="isDefaultNoConstraint"
+            [options]="isDefaultOptions"
+            bindLabel="name"
+            bindValue="value"
+          ></app-toggle-button>
+        </div>
+      </div>
+      <div class="col-lg-8 pr-5">
+        <button
+          style="top:-15px;"
+          type="button"
+          class="close d-lg-block d-md-none"
+          aria-label="Close"
+          (click)="onButtonRemoveConstraintClick(hcIndex)"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <label class="mb-0">Enter Constraint:</label>
+        <div class="mb-0 pt-2">
+          <app-hard-constraint-query-editor formControlName="constraintContent"></app-hard-constraint-query-editor>
+        </div>
+        <p
+          class="m-0 small text-danger"
+          *ngIf="
+            fgHardConstraints
+              .get('faHardConstraints')
+              .get(hcIndex.toString())
+              .get('constraintContent')
+              .hasError('required')
+          "
+        >
+          Mandatory field
+        </p>
+        <p
+          class="m-0 small text-danger"
+          *ngFor="
+            let validationError of fgHardConstraints
+              .get('faHardConstraints')
+              .get(hcIndex.toString())
+              .get('constraintContent').errors?.validationErrors
+          "
+        >
+          {{ validationError }}
+        </p>
+        <p
+          class="m-0 small text-danger"
+          *ngFor="
+            let validationError of fgHardConstraints
+              .get('faHardConstraints')
+              .get(hcIndex.toString())
+              .get('constraintContent').errors?.sqlParseErrors
+          "
+        >
+          {{ validationError }}
+        </p>
+      </div>  
+      <div class="duplicate-hconstraint-error-message" *ngIf="validateAreaToHConstraint(hc.value)">
+        Please enter one hard constraint per area.
+      </div>       
+    </div>     
+  </div>
+
+  <div class="row">
+    <div class="col pr-0">
+      <app-xml-button
+        whiteTheme="true"
+        class="float-right"
+        (click)="onBtnAddConstraintClick()"
+        [disabled]="!fgHardConstraints.valid"
+        [ngClass]="{ disabled: !fgHardConstraints.valid }"
+        >&emsp;<span class="mr-2">+</span> Add Hardcoded Constraint&emsp;</app-xml-button
+      >
+    </div>
+  </div>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

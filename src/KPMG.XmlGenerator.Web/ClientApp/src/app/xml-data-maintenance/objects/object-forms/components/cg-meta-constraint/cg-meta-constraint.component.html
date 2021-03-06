@@ -1,0 +1,176 @@
+<form [formGroup]="createForm" novalidate (ngSubmit)="nextStep()">
+  <div class="row xml-border mb-4">
+    <div class="d-flex align-items-center col-md-12 px-0">
+      <div class="col pl-0 col-20">
+        Currently working on:
+      </div>
+      <b> {{ cgMetaObjectDTO?.cgMetaObjectName }}</b>
+    </div>
+  </div>
+  <div
+    class="mt-4 position-relative"
+    formArrayName="constraints"
+    *ngFor="let constraint of constraints.controls; let i = index"
+  >
+    <div
+      [formGroupName]="i"
+      class="row xml-border position-relative"
+      [ngClass]="{
+        'duplicate-constraint': doIHaveErorValue(constraint.value)
+      }"
+    >
+      <div class="desrtoy-me" (click)="destroyMe(i)"></div>
+      <div class="row col-12 px-0 mx-0">
+        <div class="col-md-3 pl-0 pr-4">
+          <div class="">
+            Enter Field:
+          </div>
+          <div class="">
+            <app-kpmg-form-field>
+              <ng-select
+                kpmgInput
+                [searchable]="true"
+                [items]="constraintFields"
+                bindLabel="fieldName"
+                bindValue="fieldName"
+                formControlName="constraintField"
+              >
+              </ng-select>
+              <app-kpmg-form-field-error-set
+                [control]="constraint.get('constraintField')"
+                [errorsSet]="constraint_errors.constraintField"
+              ></app-kpmg-form-field-error-set>
+            </app-kpmg-form-field>
+          </div>
+        </div>
+        <div class="col-md-2 pl-0 pr-4">
+          <div class="">
+            Enter Option:
+          </div>
+          <div class="">
+            <app-kpmg-form-field>
+              <ng-select
+                kpmgInput
+                [searchable]="false"
+                [clearable]="false"
+                [items]="constraintOptions"
+                bindLabel=""
+                bindValue=""
+                formControlName="constraintOption"
+              >
+              </ng-select>
+              <app-kpmg-form-field-error-set
+                [control]="constraint.get('constraintOption')"
+                [errorsSet]="constraint_errors.constraintOption"
+              ></app-kpmg-form-field-error-set>
+            </app-kpmg-form-field>
+          </div>
+        </div>
+        <div class="col-md-3 pl-0 pr-4">
+          <div class="">
+            Enter Value:
+          </div>
+          <div class="">
+            <app-kpmg-form-field>
+              <ng-select
+                kpmgInput
+                [searchable]="true"
+                [clearable]="true"
+                [addTag]="true"
+                [items]="constraintValues"
+                formControlName="constraintValue"
+              >
+              </ng-select>
+              <app-kpmg-form-field-error-set
+                [control]="constraint.get('constraintValue')"
+                [errorsSet]="constraint_errors.constraintValue"
+              ></app-kpmg-form-field-error-set>
+            </app-kpmg-form-field>
+          </div>
+        </div>
+        <div class="col-md-4 px-0">
+          <div class="">
+            Select Area:
+          </div>
+          <div class="">
+            <app-kpmg-form-field>
+              <ng-select
+                kpmgInput
+                [searchable]="true"
+                [clearable]="true"
+                [items]="constraintAreas"
+                bindLabel="areaName"
+                formControlName="area"
+              >
+              </ng-select>
+              <app-kpmg-form-field-error-set
+                [control]="constraint.get('area')"
+                [errorsSet]="constraint_errors.area"
+              ></app-kpmg-form-field-error-set>
+            </app-kpmg-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row col-12 px-0 mx-0 mt-1">
+        <div class="col-md-3 pl-0 pr-4">
+          <div class="">
+            Extraction Logic
+          </div>
+          <div class="readonly-input">
+            <input class="form-control" type="text" formControlName="extractionLogicName" />
+          </div>
+        </div>
+        <div class="col-md-2 pl-0 pr-4">
+          <div class="">
+            InSQL
+          </div>
+          <div class="readonly-input">
+            <app-toggle-button
+              class="d-block"
+              formControlName="inSQL"
+              [options]="constraintInSQL"
+              bindLabel="name"
+              bindValue="value"
+            ></app-toggle-button>
+          </div>
+        </div>
+        <div class="col-md-3 pl-0 pr-4">
+          <div class="">
+            Priority
+          </div>
+          <app-kpmg-form-field>
+            <input
+              kpmgInput
+              class="form-control"
+              type="number"
+              min="1"
+              max="100"
+              formControlName="priority"
+              onkeydown="return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"
+            />
+            <app-kpmg-form-field-error-set
+              [control]="constraint.get('priority')"
+              [errorsSet]="constraint_errors.priority"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="duplicate-constraint-error-message" *ngIf="doIHaveErorValue(constraint.value)">
+      Please enter unique combination of fields
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-end">
+    <app-xml-button [disabled]="!createForm.valid" (click)="addConstaint()" whiteTheme="true"
+      >&emsp;<span class="mr-2">+</span> Add Constraint&emsp;</app-xml-button
+    >
+  </div>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

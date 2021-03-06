@@ -1,0 +1,67 @@
+<div class="container mb-4">
+  <app-secondary-header class="row" [mainTitle]="mainTitle"></app-secondary-header>
+
+  <form [formGroup]="createAreaForm" #createAreaFormRef (ngSubmit)="createArea()" action="#">
+    <div class="row xml-border" formGroupName="area">
+      <div class=" d-flex align-items-center col-md-6 px-0">
+        <div class="flex-grow-1 w-100">Enter Name:</div>
+        <app-kpmg-form-field class="d-block w-100">
+          <input kpmgInput formControlName="areaName" class="form-control" type="text" />
+          <app-kpmg-form-field-error-set
+            [control]="createAreaForm.get('area').get('areaName')"
+            [errorsSet]="create_area_errors.areaName"
+          ></app-kpmg-form-field-error-set>
+        </app-kpmg-form-field>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="d-flex align-items-center col-md-6 px-0 ml-4">
+        <app-xml-button *ngFor="let tab of tabs" (click)="select(tab)" [whiteTheme]="tab !== activeTab">{{
+          tab.name
+        }}</app-xml-button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="xml-border w-100">
+        <div class="col-md-6 px-0">
+          <div *ngIf="activeTab.name === tabsName.NONE">
+            <div class="mb-2">Select Objects you want to directly map to this Area:</div>
+            <app-search-select
+              [errorSet]="create_area_errors.mapMetaObjctIdColumns"
+              class="search-select-default-hight d-block"
+              [formControl]="selectedObjectsCTR"
+              multiple="true"
+            >
+              <app-search-select-option
+                *ngFor="let object of objects"
+                [value]="object.id"
+                [searchValue]="object.cgMetaObjectName"
+                >{{ object.cgMetaObjectName }}</app-search-select-option
+              >
+            </app-search-select>
+          </div>
+
+          <div *ngIf="activeTab.name === tabsName.EXISTING_AREA">
+            <div class="mb-2">Select Area to use as a Template:</div>
+            <app-search-select
+              [errorSet]="create_area_errors.templateCgMetaAreaIdColumn"
+              class="search-select-default-hight d-block"
+              [formControl]="selectAreaCTR"
+            >
+              <app-search-select-option *ngFor="let area of areas" [value]="area.id" [searchValue]="area.areaName">{{
+                area.areaName
+              }}</app-search-select-option>
+            </app-search-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-sticky-footer class="d-block w-100">
+        <app-xml-button [whiteTheme]="true" routerLink="/xml-data-maintenance/areas" class="mr-3">Back</app-xml-button>
+        <app-xml-button [isSubmit]="true">Create Area</app-xml-button>
+      </app-sticky-footer>
+    </div>
+  </form>
+</div>

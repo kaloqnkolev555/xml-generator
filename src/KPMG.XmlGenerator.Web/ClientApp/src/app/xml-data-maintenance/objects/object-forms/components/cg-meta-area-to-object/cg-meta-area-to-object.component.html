@@ -1,0 +1,31 @@
+<form [formGroup]="areaToObjectForm" novalidate (ngSubmit)="nextStep()">
+  <div class="row xml-border mb-4">
+    <div class="d-flex align-items-center col-md-12 px-0">
+      <div class="col pl-0 col-20">
+        Currently working on:
+      </div>
+      <b> {{ cgMetaObjectDTO?.cgMetaObjectName }}</b>
+    </div>
+  </div>
+  <div class="row xml-border">
+    <div class="col-md-6 px-0">
+      <label class="break-all">Select Area you want to map to: {{ cgMetaObjectDTO?.cgMetaObjectName }}</label>
+      <app-search-select
+        class="search-select-default-hight d-block"
+        formControlName="mappedAreas"
+        [multiple]="true"
+        [keys]="['versionId', 'areaName']"
+      >
+        <app-search-select-option *ngFor="let area of areas" [value]="area" [searchValue]="area.areaName">{{
+          area.areaName
+        }}</app-search-select-option>
+      </app-search-select>
+    </div>
+  </div>
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

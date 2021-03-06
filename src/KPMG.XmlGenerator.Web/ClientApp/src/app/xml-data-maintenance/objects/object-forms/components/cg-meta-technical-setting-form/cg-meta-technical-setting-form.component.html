@@ -1,0 +1,277 @@
+<form [formGroup]="createForm" novalidate (ngSubmit)="nextStep()">
+  <div class="row xml-border mb-4">
+    <div class="d-flex align-items-center col-md-12 px-0">
+      <div class="col pl-0 col-20">
+        Currently working on:
+      </div>
+      <b>{{ cgMetaObjectDTO?.cgMetaObjectName }}</b>
+    </div>
+  </div>
+  <div class="row xml-border">
+    <div class="d-flex flex-column col-md-6 px-0 pr-4">
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Select Extraction Logic:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-kpmg-form-field>
+            <ng-select
+              kpmgInput
+              [searchable]="false"
+              [clearable]="false"
+              [items]="extractionLogic"
+              bindLabel="cgMetaExtractionLogicName"
+              formControlName="cgMetaExtractionLogic"
+              (change)="onExtractionLogicChange($event)"
+            >
+            </ng-select>
+            <app-kpmg-form-field-error-set
+              [control]="createForm.get('cgMetaExtractionLogic')"
+              [errorsSet]="create_object_errors.cgMetaExtractionLogic"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Enter Helper Table Name:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-kpmg-form-field>
+            <ng-select
+              kpmgInput
+              [searchable]="true"
+              [clearable]="true"
+              [items]="helperTableNames"
+              [addTag]="true"
+              bindLabel="helperTableName"
+              bindValue="helperTableName"
+              formControlName="mapCgMetaHelperTableName"
+            >
+            </ng-select>
+            <app-kpmg-form-field-error-set
+              [control]="createForm.get('mapCgMetaHelperTableName')"
+              [errorsSet]="create_object_errors.mapCgMetaHelperTableName"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Enter DayByDay:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-ng-select-wrapper [errorsSet]="create_object_errors.dayByDay">
+            <ng-select
+              formControlName="dayByDay"
+              [items]="dd03"
+              bindLabel="fieldName"
+              bindValue="fieldName"
+              [addTag]="true"
+              [clearable]="true"
+            ></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Enter Days per Loop:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-kpmg-form-field>
+            <input
+              kpmgInput
+              class="form-control"
+              type="number"
+              min="0"
+              max="2147483647"
+              onkeydown="return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"
+              formControlName="daysPerLoop"
+            />
+            <app-kpmg-form-field-error-set
+              [control]="createForm.get('daysPerLoop')"
+              [errorsSet]="create_object_errors.daysPerLoop"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Enter NrObject:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-ng-select-wrapper [errorsSet]="create_object_errors.mapNrObject">
+            <ng-select formControlName="mapNrObject" [items]="nrObject" [addTag]="true" [clearable]="true"></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Enter NrField:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-ng-select-wrapper [errorsSet]="create_object_errors.mapNrField">
+            <ng-select formControlName="mapNrField" [items]="nrField" [addTag]="true" [clearable]="true"></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Use NrMin / NrMax:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-toggle-button
+            class="d-block mt-2"
+            formControlName="useNrMinMax"
+            [options]="useNrMinMaxOptions"
+            bindLabel="name"
+            bindValue="value"
+          ></app-toggle-button>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5 px-0">
+          Enter Parallel:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-toggle-button
+            class="d-block mt-2"
+            formControlName="isParallel"
+            [options]="parallelOptions"
+            bindLabel="name"
+            bindValue="value"
+          ></app-toggle-button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column col-md-6 px-0">
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">Enter pkgSize:</div>
+        <div class="col-md-7 px-0">
+          <app-kpmg-form-field>
+            <input
+              kpmgInput
+              class="form-control"
+              type="number"
+              min="0"
+              max="2147483647"
+              formControlName="pkgSize"
+              onkeydown="return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"
+            />
+            <app-kpmg-form-field-error-set
+              [control]="createForm.get('pkgSize')"
+              [errorsSet]="create_object_errors.pkgSize"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">
+          Enter pkgSize2:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-kpmg-form-field>
+            <input
+              kpmgInput
+              class="form-control"
+              type="number"
+              min="0"
+              max="2147483647"
+              formControlName="pkgSize2"
+              onkeydown="return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"
+            />
+            <app-kpmg-form-field-error-set
+              [control]="createForm.get('pkgSize2')"
+              [errorsSet]="create_object_errors.pkgSize2"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">
+          Enter xFilename:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-kpmg-form-field>
+            <input kpmgInput class="form-control" type="text" formControlName="xFilename" />
+            <app-kpmg-form-field-error-set
+              [control]="createForm.get('xFilename')"
+              [errorsSet]="create_object_errors.xFilename"
+            ></app-kpmg-form-field-error-set>
+          </app-kpmg-form-field>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">
+          Enter hashtotalfield:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-ng-select-wrapper [errorsSet]="create_object_errors.hashTotalField">
+            <ng-select
+              formControlName="hashTotalField"
+              [items]="dd03"
+              bindLabel="fieldName"
+              bindValue="fieldName"
+              [addTag]="true"
+              [clearable]="true"
+            ></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">
+          Enter is_default_setting:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-toggle-button
+            class="d-block mt-2"
+            formControlName="isDefault"
+            [options]="isDefaultSettingOptions"
+            bindLabel="name"
+            bindValue="value"
+          ></app-toggle-button>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">
+          Enter docNbr:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-ng-select-wrapper [errorsSet]="create_object_errors.docNbr">
+            <ng-select
+              formControlName="docNbr"
+              [items]="dd03"
+              bindLabel="fieldName"
+              bindValue="fieldName"
+              [addTag]="true"
+              [clearable]="true"
+            ></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="col-md-5">
+          Enter loopAt:
+        </div>
+        <div class="col-md-7 px-0">
+          <app-ng-select-wrapper [errorsSet]="create_object_errors.loopAt">
+            <ng-select
+              formControlName="loopAt"
+              [items]="dd03"
+              bindLabel="fieldName"
+              bindValue="fieldName"
+              [addTag]="true"
+              [clearable]="true"
+            ></ng-select>
+          </app-ng-select-wrapper>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

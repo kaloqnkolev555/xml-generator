@@ -1,0 +1,10 @@
+<div class="toggle-button-container d-flex">
+  <app-xml-button
+    [class.disabled]="disabled"
+    *ngFor="let option of options"
+    [whiteTheme]="!(optionBindingValue(option) === selectedValue)"
+    (click)="select(option)"
+  >
+    {{ bindLabel ? option[bindLabel] : option[bindValue] }}
+  </app-xml-button>
+</div>

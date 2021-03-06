@@ -1,0 +1,225 @@
+{
+  "_from": "@kpmg.refarc/brand.bootstrap.4.0",
+  "_id": "@kpmg.refarc/brand.bootstrap.4.0@4.1.3",
+  "_inBundle": false,
+  "_integrity": "sha512-dosAG8u3Tbl/f6KQnubw/20krnKPO/MSUvp5kEN6zOhctWSmgYqGljobwN6erzePJ/sQVdWmQUpw7lFG8/u39A==",
+  "_location": "/@kpmg.refarc/brand.bootstrap.4.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@kpmg.refarc/brand.bootstrap.4.0",
+    "name": "@kpmg.refarc/brand.bootstrap.4.0",
+    "escapedName": "@kpmg.refarc%2fbrand.bootstrap.4.0",
+    "scope": "@kpmg.refarc",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.de.kworld.kpmg.com/@kpmg.refarc%2fbrand.bootstrap.4.0/-/brand.bootstrap.4.0-4.1.3.tgz",
+  "_shasum": "9b6db7d6e21d098d3e541c3105f9bc23a2c0aa04",
+  "_spec": "@kpmg.refarc/brand.bootstrap.4.0",
+  "_where": "C:\\Users\\kaloyankolev\\xml\\XML%20Generator%20Tool\\src\\KPMG.XmlGenerator.Web\\ClientApp",
+  "author": {
+    "name": "KPMG IT Service GmbH, Martin Shura Krivobarski, Alon Rotem"
+  },
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
+  "bugs": {
+    "url": "https://github.com/twbs/bootstrap/issues"
+  },
+  "bundleDependencies": false,
+  "bundlesize": [
+    {
+      "path": "./css/bootstrap-grid.css",
+      "maxSize": "5 kB"
+    },
+    {
+      "path": "./css/bootstrap-grid.min.css",
+      "maxSize": "5 kB"
+    },
+    {
+      "path": "./css/bootstrap-reboot.css",
+      "maxSize": "3 kB"
+    },
+    {
+      "path": "./css/bootstrap-reboot.min.css",
+      "maxSize": "3 kB"
+    },
+    {
+      "path": "./css/bootstrap.css",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./css/bootstrap.min.css",
+      "maxSize": "21 kB"
+    },
+    {
+      "path": "./js/dist/bootstrap.bundle.js",
+      "maxSize": "45 kB"
+    },
+    {
+      "path": "./js/dist/bootstrap.bundle.min.js",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./js/dist/bootstrap.js",
+      "maxSize": "20 kB"
+    },
+    {
+      "path": "./js/dist/bootstrap.min.js",
+      "maxSize": "15 kB"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Martin Shura Krivobarski"
+    },
+    {
+      "name": "Alon Rotem"
+    },
+    {
+      "name": "Ralitsa Nikiforova"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A package containing the KPMG Bootstrap Theme with Default KPMG colors, based on Bootstrap v4.0. Includes styling for: Headers, Buttons, Typography, Table grid, Form controls, Pagination, Alerts, Labels, Badges, Progress bars, Wells, Modals, Popovers, Tooltips, Jumbotron and Carousel.",
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.37",
+    "@babel/core": "7.0.0-beta.37",
+    "@babel/preset-env": "7.0.0-beta.37",
+    "autoprefixer": "^7.2.4",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "bundlesize": "^0.15.3",
+    "clean-css-cli": "^4.1.10",
+    "cross-env": "^5.1.3",
+    "eslint": "^4.15.0",
+    "eslint-plugin-compat": "^2.1.0",
+    "glob": "^7.1.2",
+    "htmllint-cli": "^0.0.6",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-detect-browsers": "^2.2.6",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-qunit": "^1.2.1",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.10",
+    "npm-run-all": "^4.1.2",
+    "popper.js": "^1.12.9",
+    "postcss-cli": "^4.1.1",
+    "qunitjs": "^2.4.1",
+    "rollup": "^0.53.4",
+    "rollup-plugin-babel": "4.0.0-beta.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "shelljs": "^0.7.8",
+    "shx": "^0.2.2",
+    "sri-toolbox": "^0.2.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-recommended-scss": "^3.0.0",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-order": "^0.8.0",
+    "stylelint-scss": "^2.2.0",
+    "uglify-js": "^3.3.5",
+    "workbox-build": "^2.1.2"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "css/",
+    "fonts/",
+    "images/",
+    "js/{src,dist}/",
+    "scss/"
+  ],
+  "homepage": "https://getbootstrap.com",
+  "jspm": {
+    "registry": "npm",
+    "main": "js/bootstrap",
+    "directories": {
+      "lib": "dist"
+    },
+    "shim": {
+      "js/bootstrap": {
+        "deps": [
+          "jquery",
+          "popper.js"
+        ],
+        "exports": "$"
+      }
+    },
+    "dependencies": {},
+    "peerDependencies": {
+      "jquery": "1.9.1 - 3",
+      "popper.js": "^1.12.9"
+    }
+  },
+  "keywords": [
+    "RefArc",
+    "brand",
+    "bootstrap"
+  ],
+  "license": "http://progetdl.de.kworld.kpmg.com/license.html",
+  "main": "js/bootstrap",
+  "name": "@kpmg.refarc/brand.bootstrap.4.0",
+  "peerDependencies": {
+    "jquery": "1.9.1 - 3",
+    "popper.js": "^1.12.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twbs/bootstrap.git"
+  },
+  "sass": "scss/bootstrap.scss",
+  "scripts": {
+    "bundlesize": "bundlesize",
+    "css": "npm-run-all --parallel css-lint* css-compile* --sequential css-prefix* css-minify*",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap.scss css/bootstrap.css && node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap-grid.scss css/bootstrap-grid.css && node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap-reboot.scss css/bootstrap-reboot.css && node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/kpmg-web-light.scss css/kpmg-web-light.css && node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/kpmg-icons.scss css/kpmg-icons.css && node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/kpmg-logo.scss css/kpmg-logo.css",
+    "css-lint": "stylelint --syntax scss \"scss/**/*.scss\"",
+    "css-main": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
+    "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap.min.css css/bootstrap.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap-grid.min.css css/bootstrap-grid.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/bootstrap-reboot.min.css css/bootstrap-reboot.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/kpmg-web-light.min.css css/kpmg-web-light.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/kpmg-icons.min.css css/kpmg-icons.css && cleancss --level 1 --source-map --source-map-inline-sources --output css/kpmg-logo.min.css css/kpmg-logo.css",
+    "css-nolint": "npm-run-all --parallel css-compile* --sequential css-prefix* css-minify*",
+    "css-prefix": "postcss --config build/postcss.config.js --replace \"css/*.css\" \"!css/*.min.css\"",
+    "dist": "npm-run-all --parallel css js",
+    "js": "npm-run-all js-lint* js-compile js-minify",
+    "js-compile": "npm-run-all --parallel js-compile-*",
+    "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.js --sourcemap",
+    "js-compile-plugins": "cross-env PLUGINS=true babel js/src/ --out-dir js/dist/ --source-maps",
+    "js-compile-standalone": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
+    "js-lint": "eslint js/ build/",
+    "js-main": "npm-run-all js-lint js-compile js-minify",
+    "js-minify": "npm-run-all --parallel js-minify-*",
+    "js-minify-bundle": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/dist/bootstrap.bundle.js.map,includeSources,url=bootstrap.bundle.min.js.map\" --output js/dist/bootstrap.bundle.min.js js/dist/bootstrap.bundle.js",
+    "js-minify-standalone": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/dist/bootstrap.js.map,includeSources,url=bootstrap.min.js.map\" --output js/dist/bootstrap.min.js js/dist/bootstrap.js",
+    "js-test": "npm-run-all --parallel js-test-karma*",
+    "js-test-cloud": "ruby -r webrick -e \"s = WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd, :Logger => WEBrick::Log.new('/dev/null'), :AccessLog => []); trap('INT') { s.shutdown }; s.start\"",
+    "js-test-karma": "karma start js/tests/karma.conf.js",
+    "js-test-karma-old": "cross-env USE_OLD_JQUERY=true npm run js-test-karma",
+    "maintenance-dependencies": "ncu -a -x jquery && npm update && bundle update && shx echo \"Manually update assets/js/vendor/*, js/tests/vendor/* and .travis.yml\"",
+    "release-sri": "node build/generate-sri.js",
+    "release-version": "node build/change-version.js",
+    "release-zip": "cd dist/ && zip -r9 bootstrap-$npm_package_version-dist.zip * && shx mv bootstrap-$npm_package_version-dist.zip ..",
+    "test": "npm-run-all dist js-test bundlesize",
+    "watch": "npm-run-all --parallel watch-css watch-js",
+    "watch-css": "nodemon --ignore js/ --ignore css/ -e scss -x \"npm run css\"",
+    "watch-js": "nodemon --ignore scss/ --ignore js/dist/ --ignore css/ -e js -x \"npm run js-compile\""
+  },
+  "style": "css/bootstrap.css",
+  "version": "4.1.3"
+}

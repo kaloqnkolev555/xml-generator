@@ -1,0 +1,9 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+
+<div *ngIf="!isSubmit" class="xml-button" [class.disabled]="disabled" [class.white-theme]="whiteTheme">
+  {{ title }}<ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+<button *ngIf="isSubmit" class="xml-button" type="submit" [class.disabled]="disabled" [class.white-theme]="whiteTheme">
+  {{ title }}<ng-container *ngTemplateOutlet="content"></ng-container>
+</button>

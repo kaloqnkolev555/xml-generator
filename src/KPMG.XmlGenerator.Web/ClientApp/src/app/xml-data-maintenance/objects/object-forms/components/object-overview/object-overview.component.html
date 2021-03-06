@@ -1,0 +1,196 @@
+<form novalidate (ngSubmit)="onFinishClick()">
+  <app-object-overview-object-info [cgMetaObjectInfo]="dataSource?.cgMetaObjectDTO"></app-object-overview-object-info>
+  <app-object-overview-technical-setting
+    [cgMetaTechnicalSetting]="dataSource?.cgMetaObjectTechnicalSettings"
+  ></app-object-overview-technical-setting>
+  <div class="row">
+    <div class="col-lg-8 col-md-12 p-0 mt-4">
+      <div class="xml-border mr-md-0 mr-lg-4" style="height:100%">
+        <div class="row">
+          <div class="col font-weight-bold">Mapped Areas &amp; Columns</div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <i *ngIf="areasAndColumns?.length; then tableAreasAndColumns; else noAreasAndColumnsMapped"></i>
+            <ng-template #tableAreasAndColumns>
+              <table class="table table-sm table-bordered table-striped">
+                <caption class="d-none">
+                  Mapped Areas &amp; Columns
+                </caption>
+                <thead>
+                  <tr class="table-active">
+                    <th scope="col" class="text-nowrap" style="width:35%;">Mapped Areas</th>
+                    <th scope="col" class="text-nowrap">Mapped Columns</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let area of areasAndColumns">
+                    <td scope="row" class="break-all">{{ area.areaName }}</td>
+                    <td [ngClass]="{ 'pb-0': area.mappedColumns?.length }">
+                      <i
+                        *ngIf="area.mappedColumns?.length; then templateListMappedColumns; else templateNoMappedColumns"
+                      ></i>
+                      <ng-template #templateListMappedColumns>
+                        <span
+                          class="badge badge-info mr-2"
+                          style="vertical-align:text-top;"
+                          [tooltip]="
+                            area.mappedColumns?.length +
+                            ' column' +
+                            (area.mappedColumns?.length === 1 ? '' : 's') +
+                            ' mapped'
+                          "
+                          >{{ area.mappedColumns?.length }}</span
+                        >
+                        <span *ngFor="let column of area.mappedColumns; index as i"
+                          >{{ column }}<span *ngIf="i < area.mappedColumns?.length - 1">, </span></span
+                        >
+                      </ng-template>
+                      <ng-template #templateNoMappedColumns>
+                        <i class="text-muted">No columns mapped</i>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-template>
+            <ng-template #noAreasAndColumnsMapped>
+              <p class="text-muted">There are no mapped areas and columns for this object</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 p-0 mt-4">
+      <div class="xml-border" style="height:100%">
+        <div class="row">
+          <div class="col font-weight-bold">Mapped Variants</div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <i *ngIf="variants?.length; then tableVariants; else noVariantsMapped"></i>
+            <ng-template #tableVariants>
+              <table class="table table-sm table-bordered table-striped">
+                <caption class="d-none">
+                  Mapped Variants
+                </caption>
+                <thead>
+                  <tr class="table-active">
+                    <th scope="col">Variant</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let variant of variants">
+                    <td class="break-all">{{ variant.variantName }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-template>
+            <ng-template #noVariantsMapped>
+              <p class="text-muted">There are no mapped variants for this object</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row xml-border mt-4">
+    <div class="col p-0">
+      <div class="row">
+        <div class="col font-weight-bold">Constraints</div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <i *ngIf="constraints?.length; then tableConstraints; else noConstraintsDefined"></i>
+          <ng-template #tableConstraints>
+            <div class="table-responsive">
+              <table class="table table-sm table-bordered table-striped">
+                <caption class="d-none">
+                  Constraints
+                </caption>
+                <thead>
+                  <tr class="table-active">
+                    <th scope="col">Field</th>
+                    <th scope="col">Option</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Area</th>
+                    <th scope="col">InSQL</th>
+                    <th scope="col">Priority</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of constraints">
+                    <td>{{ c.constraintField }}</td>
+                    <td>{{ c.constraintOption }}</td>
+                    <td>{{ c.constraintValue }}</td>
+                    <td>{{ c.area.areaName }}</td>
+                    <td>{{ c.inSQL }}</td>
+                    <td>{{ c.priority }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+          <ng-template #noConstraintsDefined>
+            <p class="text-muted">There are no constraints created for this object</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row xml-border mt-4">
+    <div class="col p-0">
+      <div class="row">
+        <div class="col font-weight-bold">Hardcoded Constraints</div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <i
+            *ngIf="
+              dataSource.hardCodedConstraints.faHardConstraints?.length;
+              then tableHardConstraints;
+              else noHardConstraintsDefined
+            "
+          ></i>
+          <ng-template #tableHardConstraints>
+            <div class="table-responsive">
+              <table class="table table-sm table-bordered table-striped">
+                <caption class="d-none">
+                  Hardcoded Constraints
+                </caption>
+                <thead>
+                  <tr class="table-active">
+                    <th scope="col">Name</th>
+                    <th scope="col">Constraint</th>
+                    <th scope="col">Area</th>
+                    <th scope="col">Is Default No Constraint</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let hc of dataSource.hardCodedConstraints.faHardConstraints">
+                    <td>{{ hc.hConstraintName }}</td>
+                    <td>
+                      <pre class="mb-0"><code>{{ hc.constraintContent }}</code></pre>
+                    </td>
+                    <td>{{ hc.area.areaName }}</td>
+                    <td><span *ngIf="hc.isDefaultNoConstraint">X</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+          <ng-template #noHardConstraintsDefined>
+            <p class="text-muted">There are no hardcoded constraints created for this object</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" (click)="backButtonClick()" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Finish</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>

@@ -1,0 +1,47 @@
+<div class="container-fluid d-flex flex-grow-1 flex-shrink-0">
+  <form [formGroup]="form" class="col-md-3">
+    <div class='form-group'>
+      <label>{{'form.product' | translate}}</label>
+      <input class="form-control" type="text" formControlName="product" [placeholder]="'form.placeholders.product' | translate"/>
+      <app-error [message]="'errors.required'" [control]="form.get('product')"></app-error>
+    </div>
+    <div class='form-group'>
+      <label>{{'form.email' | translate}}</label>
+      <input class="form-control" type="email" formControlName="email" [placeholder]="'form.placeholders.email' | translate"/>
+      <app-error [message]="'errors.email'" [control]="form.get('email')"></app-error>
+    </div>
+    <div class='form-group'>
+      <label>{{'form.price' | translate}}</label>
+      <input [appInputMask]="'number'" [suffix]="'form.currency' | translate" class="form-control"
+      formControlName="price" [placeholder]="'form.placeholders.price' | translate"/>
+      <app-error [message]="'errors.required'" [control]="form.get('price')"></app-error>
+    </div>
+    <div class='form-group'>
+      <label>{{'form.expiryDate' | translate}}</label>
+      <input class="form-control" formControlName="expiryDate" [placeholder]="'form.placeholders.expiry' | translate"/>
+      <app-error [message]="'errors.date'" [control]="form.get('expiryDate')"></app-error>
+    </div>
+    <div class='form-group'>
+      <div class="checkbox">
+        <label>{{'form.discounted' | translate}}<input type="checkbox" class="ml-2" formControlName="discounted" value=""></label>
+      </div>
+    </div>
+    <div class="text-center">
+        <input type="button" (click)="addItem()" [value]="'form.add' | translate" class="button"/>
+    </div>
+  </form>
+  <div class="col-md-8 left-border">
+    <div class="table">
+      <div class="table-header-row">
+        <div *ngFor="let header of headers" class="table-header">{{header | titlecase}}</div>
+      </div>
+      <div class="table-body">
+          <div *ngFor="let item of items" class="table-row">
+            <div *ngFor="let header of headers" class="table-cell">
+              {{item[header]}}
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

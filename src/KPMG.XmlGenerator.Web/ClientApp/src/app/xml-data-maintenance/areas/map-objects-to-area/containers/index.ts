@@ -1,0 +1,1 @@
+export * from './map-objects-to-area/map-objects-to-area.component';

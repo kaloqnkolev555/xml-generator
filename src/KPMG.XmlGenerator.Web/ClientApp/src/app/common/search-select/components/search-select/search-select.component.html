@@ -1,0 +1,33 @@
+<div class="search-select-container">
+  <div class="form-group">
+    <input class="form-control" [formControl]="searchCTR" placeholder="Search" type="text" />
+  </div>
+
+  <div
+    class="select-box"
+    [class.multiple]="multiple"
+    [class.error]="!control.valid && control.touched && !control.disabled"
+  >
+    <div class="options-box">
+      <div
+        class="d-flex justify-content-between border-bottom p-1 pb-2 mb-2"
+        *ngIf="multiple"
+        [ngClass]="{ 'disabled btn': isDisabled }"
+      >
+        <div class="btn btn-info" (click)="toggleAll(true)">Select All</div>
+        <div class="btn btn-info" (click)="toggleAll(false)">Select None</div>
+        <div class="custom-control custom-checkbox" (click)="selectedOnTop()">
+          <input class="custom-control-input" type="checkbox" [ngModel]="checkedSelected" />
+          <label class="custom-control-label">Show Selected only</label>
+        </div>
+      </div>
+      <ng-content select="app-search-select-option"></ng-content>
+      <ng-container *ngIf="noItemFound">
+        <p>No items found!</p>
+      </ng-container>
+    </div>
+    <div class="footer-box" *ngIf="!control.valid && control.touched && !control.disabled">
+      <app-kpmg-form-field-error-set [control]="control" [errorsSet]="errorSet"></app-kpmg-form-field-error-set>
+    </div>
+  </div>
+</div>

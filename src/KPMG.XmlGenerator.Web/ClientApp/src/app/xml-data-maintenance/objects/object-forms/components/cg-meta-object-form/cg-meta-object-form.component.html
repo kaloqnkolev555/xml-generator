@@ -1,0 +1,164 @@
+<form [formGroup]="cdMetaObjectForm" (ngSubmit)="formSubmitSubject$.next()">
+  <div class="row xml-border form-group" *ngIf="!(cgMetaObjectDTO.id !== null)">
+    <label for="useObjectAsTemplateCTR" class="col-lg-4 col-form-label">Select Object to use as a Template:</label>
+    <div class="col-lg-5">
+      <app-ng-select-wrapper class="form-control pt-0 border-0" [controlRef]="useObjectAsTemplateCTR">
+        <ng-select id="useObjectAsTemplateCTR"
+                   [formControl]="useObjectAsTemplateCTR"
+                   [items]="cgMetaObjects"
+                   bindLabel="cgMetaObjectName"
+                   bindValue="id"></ng-select>
+      </app-ng-select-wrapper>
+    </div>
+    <div class="col-lg-3">
+      <app-xml-button (click)="loadTemplate()" [disabled]="!useObjectAsTemplateCTR?.value" class="mt-2">Use as Template</app-xml-button>
+    </div>
+  </div>
+
+  <div class="row xml-border mt-4" [class.mt-4]="!(cgMetaObjectDTO.id !== null)">
+    <div class="col-md-4">
+      <div class="flex-grow-1 w-100">Enter Name:</div>
+      <div class="d-flex align-items-center">
+        <app-kpmg-form-field class="d-block w-100">
+          <input kpmgInput formControlName="cgMetaObjectName" class="form-control" type="text" />
+          <app-kpmg-form-field-error-set
+            [control]="cdMetaObjectForm.get('cgMetaObjectName')"
+            [errorsSet]="object_errors.cgMetaObjectName"
+          ></app-kpmg-form-field-error-set>
+        </app-kpmg-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="flex-grow-1 w-100">Enter Description:</div>
+      <app-kpmg-form-field class="d-block w-100">
+        <input formControlName="description" kpmgInput class="form-control" type="text" />
+        <app-kpmg-form-field-error-set
+          [control]="cdMetaObjectForm.get('description')"
+          [errorsSet]="object_errors.description"
+        ></app-kpmg-form-field-error-set>
+      </app-kpmg-form-field>
+    </div>
+
+    <div class="col-md-4">
+      <div class="flex-grow-1 w-100">Is Default?</div>
+      <app-toggle-button
+        class="d-block mt-2"
+        formControlName="isDefault"
+        [options]="isDefaultOptions"
+        bindLabel="name"
+        bindValue="value"
+      ></app-toggle-button>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center mt-4">
+    <app-toggle-button
+      [options]="formTypesOptions"
+      bindLabel="name"
+      formControlName="isFooter"
+      bindValue="value"
+      (selected)="changeForm($event)"
+    ></app-toggle-button>
+  </div>
+
+  <div class="row xml-border">
+    <ng-container *ngIf="!selectedFormType">
+      <div class="col-md-6 form-group">
+        <label class="mb-0">Select Group</label>
+        <app-ng-select-wrapper [errorsSet]="object_errors.mapCgMetaGroup">
+          <ng-select
+            formControlName="mapCgMetaGroup"
+            [items]="groups"
+            bindLabel="groupIdAndLabel"
+            [clearable]="true"
+          ></ng-select>
+        </app-ng-select-wrapper>
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label class="mb-0">Select Table</label>
+
+        <app-ng-select-wrapper [errorsSet]="object_errors.mapCgMetaTableName">
+          <ng-select
+            formControlName="mapCgMetaTableName"
+            [items]="tables"
+            bindLabel="tableName"
+            bindValue="tableName"
+            [clearable]="true"
+          ></ng-select>
+        </app-ng-select-wrapper>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedFormType">
+      <div class="col-md-6">
+        <label>Select Footer Table Name</label>
+        <app-search-select
+          [errorSet]="object_errors.mapCgMetaTableName"
+          class="search-select-default-hight d-block"
+          formControlName="mapCgMetaTableName"
+        >
+          <app-search-select-option
+            #option
+            *ngFor="let table of tables"
+            [value]="table.tableName"
+            (click)="option.isSelected ? selectedTable(table.tableName, true) : null"
+            [searchValue]="table.tableName"
+          >
+            {{ table.tableName || '*empty name' }}
+          </app-search-select-option>
+        </app-search-select>
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label>Select Header Object</label>
+        <app-search-select
+          [errorSet]="object_errors.cgMetaHeaderObjectId"
+          class="search-select-default-hight d-block"
+          formControlName="cgMetaHeaderObjectId"
+        >
+          <app-search-select-option
+            *ngFor="let object of cgMetaObjects"
+            [value]="object.id"
+            [searchValue]="object.cgMetaObjectName"
+          >
+            {{ object.cgMetaObjectName }}
+          </app-search-select-option>
+        </app-search-select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="mb-0">Enter Footer File Name</label>
+        <app-kpmg-form-field class="d-block w-100">
+          <input formControlName="fileName" kpmgInput class="form-control" type="text" />
+          <app-kpmg-form-field-error-set
+            [control]="cdMetaObjectForm.get('fileName')"
+            [errorsSet]="object_errors.fileName"
+          ></app-kpmg-form-field-error-set>
+        </app-kpmg-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <label class="mb-0">Enter hashtotalfield</label>
+        <app-ng-select-wrapper [errorsSet]="object_errors.hashTotalField">
+          <ng-select
+            formControlName="hashTotalField"
+            [items]="dd03"
+            bindLabel="fieldName"
+            bindValue="fieldName"
+            [addTag]="true"
+            [clearable]="false"
+          ></ng-select>
+        </app-ng-select-wrapper>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="row">
+    <app-sticky-footer>
+      <app-xml-button whiteTheme="true" routerLink="/xml-data-maintenance/objects" class="mr-3">Back</app-xml-button>
+      <app-xml-button [isSubmit]="true">Next</app-xml-button>
+    </app-sticky-footer>
+  </div>
+</form>
